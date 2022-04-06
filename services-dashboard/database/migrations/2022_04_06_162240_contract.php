@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('address');
             $table->string('doc_location');
             $table->string('details');
-            $table->foreignId('user');
+            $table->foreignId('users');
             $table->foreignId('service');
         });
     }

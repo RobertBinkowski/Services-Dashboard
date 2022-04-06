@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('address');
             $table->double('score')->nullable();
             $table->double('price')->nullable();
-            $table->foreignId('user');
+            $table->foreignId('users');
 
         });
     }

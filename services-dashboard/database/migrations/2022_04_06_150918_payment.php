@@ -18,7 +18,7 @@ return new class extends Migration
             $table->timestamp('created_date')->date_timestamp_set();
             $table->enum('type', ['deposit', 'payment']);
             $table->string('stripe');
-            $table->foreignId('user');
+            $table->foreignId('users');
             $table->foreignId('contract');
             $table->double('amount');
             $table->boolean('paid')->FALSE;
