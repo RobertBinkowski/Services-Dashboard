@@ -1,0 +1,335 @@
+/*
+
+Name:           ROOT FILE FOR A WEBSITE
+Designed By:    Robert Binkowski
+Date:           25/2/22
+
+*/
+/* --------------------------------------- Imports */
+footer {
+  background: #2e3133;
+}
+
+/* ----------------------------------- Variables */
+/*-------------------------------------------------------------SCREEN SISES*/
+/*-------------------------------------------------------BIG*/
+@media only screen and (min-width: 600px) {
+  nav {
+    top: 0;
+  }
+  nav .nav-li p {
+    display: none;
+  }
+  .grid {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 3em;
+  }
+  .grid div {
+    width: 50vw;
+  }
+  footer {
+    padding-bottom: 3em;
+  }
+}
+
+/*-----------------------------------------------------SMALL*/
+@media only screen and (max-width: 600px) {
+  nav {
+    bottom: 0px;
+    left: 0px;
+    width: 100vw;
+  }
+  nav .a-logo {
+    display: none;
+  }
+  nav ul {
+    margin: 0em;
+  }
+  nav ul p {
+    font-size: 1.5em;
+  }
+  nav ul .nav-li {
+    padding-top: 1em;
+    padding-bottom: 1em;
+  }
+  nav strong {
+    display: none;
+  }
+  section {
+    display: block;
+  }
+  .grid {
+    display: block;
+    padding: 1em;
+  }
+  footer {
+    padding-bottom: 5em;
+  }
+}
+
+/* ------------------------------------ DEFAULT */
+html {
+  scroll-behavior: smooth;
+}
+
+html body {
+  font-family: "Montserrat", sans-serif;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  overflow-x: hidden;
+  background: #202938;
+  color: #949494;
+  text-shadow: 1px 1px 1px #272727;
+}
+
+html body main {
+  min-height: 100vh;
+  padding-bottom: 1em;
+  padding-top: 5em;
+}
+
+html body h1,
+html body h2,
+html body h3,
+html body h4 {
+  text-shadow: 2px 2px 2px #272727;
+}
+
+html body h1 {
+  margin-bottom: 0;
+  color: #58d68d;
+}
+
+html body h2 {
+  margin-top: 0;
+  color: #1792df;
+}
+
+html body h3 {
+  color: #1792df;
+}
+
+html body h4 {
+  color: #1792df;
+}
+
+html body #welcomeScreeen {
+  min-height: 100vh;
+}
+
+html body footer {
+  padding-top: 2em;
+}
+
+html body footer .footer-logo {
+  height: 4em;
+}
+
+html body footer .footer-logo svg {
+  stroke-width: 2;
+}
+
+html body footer .footer-links p {
+  padding: .5em;
+  font-size: 2em;
+}
+
+nav {
+  display: block;
+  width: 100vw;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  position: fixed;
+}
+
+nav .nav-ul {
+  -webkit-box-shadow: 0 0 1rem 0 rgba(32, 32, 32, 0.514);
+          box-shadow: 0 0 1rem 0 rgba(32, 32, 32, 0.514);
+  margin: 0;
+  max-width: 1500px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgba(45, 54, 66, 0.5);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+nav .nav-ul .nav-li {
+  width: 100%;
+}
+
+nav .nav-ul .nav-a {
+  height: 100%;
+  padding: 1em 0 1em 0;
+  width: 100%;
+}
+
+nav .nav-ul .nav-loc {
+  text-align: left;
+  height: 100%;
+  padding: 1.3em 0 0 1em;
+  width: 100%;
+}
+
+nav .nav-ul .nav-loc:hover {
+  background: none;
+}
+
+a {
+  text-decoration: none;
+  color: #949494;
+  font-weight: bold;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+a:hover {
+  color: #58d68d;
+}
+
+em {
+  font-weight: bold;
+  color: #1792df;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+p {
+  margin: 0;
+}
+
+p strong {
+  color: #58d68d;
+}
+
+/*----------------------------------------------LI*/
+li {
+  border-radius: 0.2em;
+  padding: 0.3em;
+  text-shadow: none;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+li a {
+  font-size: 1.5em;
+}
+
+li:hover {
+  background: radial-gradient(#539e721f 0, rgba(0, 0, 0, 0) 75%);
+}
+
+/* --------------------------------------- MAIN */
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 1em;
+  margin-right: 0;
+  margin: auto;
+  margin-top: 1em;
+  min-height: 100vh;
+}
+
+section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 1em;
+  margin-right: 0;
+  margin: auto;
+  margin-top: 1em;
+  min-height: 100vh;
+  max-width: 1300px;
+  -webkit-box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.7);
+          box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.7);
+}
+
+.top-svg {
+  width: 100%;
+  max-width: 20em;
+  margin: 1em;
+}
+
+.grid {
+  grid-gap: 1em;
+  max-width: 100%;
+}
+
+/* ------------------------------------- BUTTON */
+.button {
+  padding: 1em;
+  margin: 1em;
+  cursor: pointer;
+  border: 1px solid #58d68d;
+  border-radius: 1em;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.button:hover {
+  border-radius: 0.5em;
+  background: radial-gradient(#539e721f 0, rgba(0, 0, 0, 0) 75%);
+}
+
+.experience {
+  padding: 1em;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.experience div {
+  padding: 1em;
+}
+
+.experience:hover {
+  background: radial-gradient(#539e721f 0, rgba(0, 0, 0, 0) 75%);
+}
+
+.experience:hover .exp-screen {
+  -webkit-filter: grayscale(0);
+          filter: grayscale(0);
+  border-color: #58d68d;
+  border-radius: 0.1em;
+}
+
+.experience .exp-screen {
+  width: calc(14rem + 15vw);
+  border-radius: 1em;
+  border: 1px solid #ffffff00;
+  -webkit-filter: grayscale(100%);
+          filter: grayscale(100%);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+/*# sourceMappingURL=app.css.map */

@@ -1,0 +1,10 @@
+/* ----------------------------------- Variables */
+@mixin flexCenter() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+@mixin gradient() {
+  background: radial-gradient($button-hover 0, rgba(0, 0, 0, 0) 75%);
+}

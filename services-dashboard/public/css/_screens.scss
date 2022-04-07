@@ -1,0 +1,57 @@
+/*-------------------------------------------------------------SCREEN SISES*/
+/*-------------------------------------------------------BIG*/
+@media only screen and (min-width: 600px) {
+    nav {
+      top: 0;
+      .nav-li {
+        p{
+          display: none;
+        }
+      }
+    }
+    .grid{
+      display: flex;
+      padding: 3em;
+      div{
+        width: 50vw;
+      }
+    }
+    footer{
+      padding-bottom: 3em;
+    }
+  }
+  /*-----------------------------------------------------SMALL*/
+  @media only screen and (max-width: 600px) {
+    nav {
+        bottom: 0px;
+        left: 0px;
+        width: 100vw;
+        .a-logo {
+          display: none;
+        }
+        ul {
+          margin: 0em;
+          p {
+            font-size: 1.5em;
+          }
+          .nav-li {
+            padding-top: 1em;
+            padding-bottom: 1em;
+          }
+        }
+        strong {
+          display: none;
+        }
+      }
+    section {
+      display: block;
+    }
+    .grid{
+      display: block;
+      padding: 1em;
+    }
+
+    footer {
+      padding-bottom: 5em;
+    }
+  }
