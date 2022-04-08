@@ -28,7 +28,7 @@ html {
     main {
       min-height: 100vh;
       padding-bottom: 1em;
-      padding-top:5em;
+      padding-top:4em;
     }
     h1,
     h2,
@@ -111,7 +111,8 @@ a {
   color: $txt-1;
   font-weight: bold;
   transition: $tr-s;
-  &:hover {
+  outline: none;
+  &:hover , &:focus{
     color: $acc-2;
   }
 }
@@ -171,6 +172,50 @@ section{
   grid-gap: 1em;
   max-width: 100%;
 }
+button{
+    background-color: #00000000;
+    color: $txt-1;
+    font-size: 1.1em;
+    outline: none;
+    &:hover, &:focus{
+        color: $acc-2;
+    }
+}
+#signIn, #register{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    .content {
+        background-color: rgb(57, 77, 92);
+        margin: auto;
+        border-radius: $rad-1;
+        max-height: 50em;
+        width: 30em;
+        padding:2em;
+        display: flex;
+        flex-direction: column;
+    }
+    .error-message{
+        color: #ff3e3e;
+    }
+    input[type=email],input[type=checkbox],input[type=text],input[type=password]{
+        border-radius:$rad-1;
+        padding: .5em;
+        padding-left:1em;
+        padding-right:1em;
+        outline: 3px solid #00000000;
+        border: none;
+        transition: $tr-s;
+        &:focus{
+            outline-color: $acc-1;
+        }
+    }
+}
+label{
+    font-size: 1.1em;
+}
+
 /* ------------------------------------- BUTTON */
 
 .button {
@@ -180,31 +225,9 @@ section{
   border: 1px solid $acc-2;
   border-radius: 1em;
   transition: $tr-s;
-  &:hover {
+  &:hover, &:focus {
     border-radius: 0.5em;
     @include gradient();
-  }
-}
-.experience {
-  padding: 1em;
-  transition: $tr-s;
-  div {
-    padding: 1em;
-  }
-  &:hover {
-    @include gradient();
-    .exp-screen {
-      filter: grayscale(0);
-      border-color: $acc-2;
-      border-radius: 0.1em;
-    }
-  }
-  .exp-screen {
-    width: calc(14rem + 15vw);
-    border-radius: 1em;
-    border: 1px solid #ffffff00;
-    filter: grayscale(100%);
-    transition: $tr-s;
   }
 }
 

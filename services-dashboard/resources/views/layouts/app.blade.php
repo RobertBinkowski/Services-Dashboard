@@ -62,6 +62,20 @@
                                 <strong class="nav-txt">Dashboard</strong>
                             </li>
                         </a>
+                        <a class="nav-a" href="{{ url('/search') }}" data-bs-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false" v-pre>
+                            <li class="nav-li">
+                                <p class="fa-solid fa-search"></p>
+                                <strong class="nav-txt">search</strong>
+                            </li>
+                        </a>
+                        <a class="nav-a" href="{{ url('/add') }}" data-bs-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false" v-pre>
+                            <li class="nav-li">
+                                <p class="fa-solid fa-add"></p>
+                                <strong class="nav-txt">add</strong>
+                            </li>
+                        </a>
                         <a class="nav-a" href="{{ url('/user') }}" data-bs-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false" v-pre>
                             <li class="nav-li">

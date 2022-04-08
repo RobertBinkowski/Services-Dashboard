@@ -88,7 +88,7 @@ html body {
 html body main {
   min-height: 100vh;
   padding-bottom: 1em;
-  padding-top: 5em;
+  padding-top: 4em;
 }
 
 html body h1,
@@ -188,9 +188,10 @@ a {
   font-weight: bold;
   -webkit-transition: 0.3s;
   transition: 0.3s;
+  outline: none;
 }
 
-a:hover {
+a:hover, a:focus {
   color: #58d68d;
 }
 
@@ -286,6 +287,67 @@ section {
   max-width: 100%;
 }
 
+button {
+  background-color: #00000000;
+  color: #949494;
+  font-size: 1.1em;
+  outline: none;
+}
+
+button:hover, button:focus {
+  color: #58d68d;
+}
+
+#signIn, #register {
+  height: 100vh;
+  width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#signIn .content, #register .content {
+  background-color: #394d5c;
+  margin: auto;
+  border-radius: 0.2em;
+  max-height: 50em;
+  width: 30em;
+  padding: 2em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#signIn .error-message, #register .error-message {
+  color: #ff3e3e;
+}
+
+#signIn input[type=email], #signIn input[type=checkbox], #signIn input[type=text], #signIn input[type=password], #register input[type=email], #register input[type=checkbox], #register input[type=text], #register input[type=password] {
+  border-radius: 0.2em;
+  padding: .5em;
+  padding-left: 1em;
+  padding-right: 1em;
+  outline: 3px solid #00000000;
+  border: none;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+#signIn input[type=email]:focus, #signIn input[type=checkbox]:focus, #signIn input[type=text]:focus, #signIn input[type=password]:focus, #register input[type=email]:focus, #register input[type=checkbox]:focus, #register input[type=text]:focus, #register input[type=password]:focus {
+  outline-color: #1792df;
+}
+
+label {
+  font-size: 1.1em;
+}
+
 /* ------------------------------------- BUTTON */
 .button {
   padding: 1em;
@@ -297,39 +359,8 @@ section {
   transition: 0.3s;
 }
 
-.button:hover {
+.button:hover, .button:focus {
   border-radius: 0.5em;
   background: radial-gradient(#539e721f 0, rgba(0, 0, 0, 0) 75%);
-}
-
-.experience {
-  padding: 1em;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-}
-
-.experience div {
-  padding: 1em;
-}
-
-.experience:hover {
-  background: radial-gradient(#539e721f 0, rgba(0, 0, 0, 0) 75%);
-}
-
-.experience:hover .exp-screen {
-  -webkit-filter: grayscale(0);
-          filter: grayscale(0);
-  border-color: #58d68d;
-  border-radius: 0.1em;
-}
-
-.experience .exp-screen {
-  width: calc(14rem + 15vw);
-  border-radius: 1em;
-  border: 1px solid #ffffff00;
-  -webkit-filter: grayscale(100%);
-          filter: grayscale(100%);
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
 }
 /*# sourceMappingURL=app.css.map */
