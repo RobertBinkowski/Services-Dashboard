@@ -14,11 +14,17 @@ footer {
 /*-------------------------------------------------------------SCREEN SISES*/
 /*-------------------------------------------------------BIG*/
 @media only screen and (min-width: 600px) {
-  nav {
+  main {
+    padding-top: 4em;
+  }
+  main nav {
     top: 0;
   }
-  nav .nav-li p {
+  main nav .nav-li p {
     display: none;
+  }
+  main footer {
+    padding-bottom: 3em;
   }
   .grid {
     display: -webkit-box;
@@ -28,9 +34,6 @@ footer {
   }
   .grid div {
     width: 50vw;
-  }
-  footer {
-    padding-bottom: 3em;
   }
 }
 
@@ -65,7 +68,7 @@ footer {
     padding: 1em;
   }
   footer {
-    padding-bottom: 5em;
+    padding-bottom: 7em;
   }
 }
 
@@ -88,7 +91,6 @@ html body {
 html body main {
   min-height: 100vh;
   padding-bottom: 1em;
-  padding-top: 4em;
 }
 
 html body h1,
@@ -329,7 +331,7 @@ button:hover, button:focus {
   color: #ff3e3e;
 }
 
-#signIn input[type=email], #signIn input[type=checkbox], #signIn input[type=text], #signIn input[type=password], #register input[type=email], #register input[type=checkbox], #register input[type=text], #register input[type=password] {
+form input[type=email], form input[type=checkbox], form input[type=text], form input[type=password] {
   border-radius: 0.2em;
   padding: .5em;
   padding-left: 1em;
@@ -340,12 +342,21 @@ button:hover, button:focus {
   transition: 0.3s;
 }
 
-#signIn input[type=email]:focus, #signIn input[type=checkbox]:focus, #signIn input[type=text]:focus, #signIn input[type=password]:focus, #register input[type=email]:focus, #register input[type=checkbox]:focus, #register input[type=text]:focus, #register input[type=password]:focus {
+form input[type=email]:focus, form input[type=checkbox]:focus, form input[type=text]:focus, form input[type=password]:focus {
   outline-color: #1792df;
+}
+
+form input[type=password] {
+  background-color: #00000000;
 }
 
 label {
   font-size: 1.1em;
+}
+
+.div-info {
+  padding-left: 1em;
+  text-align: left;
 }
 
 /* ------------------------------------- BUTTON */

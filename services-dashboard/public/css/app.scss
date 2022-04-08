@@ -28,7 +28,6 @@ html {
     main {
       min-height: 100vh;
       padding-bottom: 1em;
-      padding-top:4em;
     }
     h1,
     h2,
@@ -199,6 +198,8 @@ button{
     .error-message{
         color: #ff3e3e;
     }
+}
+form{
     input[type=email],input[type=checkbox],input[type=text],input[type=password]{
         border-radius:$rad-1;
         padding: .5em;
@@ -211,9 +212,17 @@ button{
             outline-color: $acc-1;
         }
     }
+    input[type=password]{
+        background-color: #00000000;
+    }
 }
+
 label{
     font-size: 1.1em;
+}
+.div-info{
+    padding-left: 1em;
+    text-align: left;
 }
 
 /* ------------------------------------- BUTTON */
