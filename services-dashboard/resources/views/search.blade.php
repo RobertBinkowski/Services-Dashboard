@@ -4,12 +4,17 @@
     <div class="div-info">
         <h1>Search</h1>
     </div>
-    <div>
+    <div id="search">
         <form action="POST">
-            <label for="search">Search</label>
-            <br>
-            <input type="text" name="search">
-            <input type="button" class="button" value="search">
+            <input type="search" name="search" />
+            <input type="submit" class="button" value="Search">
         </form>
+    </div>
+    <div>
+        <ul>
+            <a href="#">
+                <li>Specialist</li>
+            </a>
+        </ul>
     </div>
 @endsection

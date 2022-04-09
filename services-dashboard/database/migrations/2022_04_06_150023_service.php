@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('service', function (Blueprint $table){
             $table->id('id')->autoIncrement();
             $table->timestamp('creation_date')->date_timestamp_set();
-            $table->string('mame');
+            $table->string('name');
             $table->string('address');
             $table->double('score')->nullable();
             $table->double('price')->nullable();

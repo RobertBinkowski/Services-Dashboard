@@ -25,10 +25,10 @@ Route::get('/search', function () {
     return view('search');
 });
 
-Route::get('/user', function () {
-    return view('user');
+Route::get('/account', function () {
+    return view('account');
 });
 
-Route::get('/add', function () {
-    return view('add');
+Route::get('/addservice', function () {
+    return view('addservice');
 });

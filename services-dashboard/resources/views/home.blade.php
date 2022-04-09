@@ -3,10 +3,8 @@
 @section('content')
     <div class="div-info">
         <h1>Dashboard</h1>
-        <h3>Hello {{ Auth::user()->name }}</h3>
+        <h2>Hello, {{ Auth::user()->name }}</h2>
     </div>
-
-
     <div>
         <p></p>
     </div>

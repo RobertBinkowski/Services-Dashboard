@@ -17,13 +17,10 @@ footer {
   main {
     padding-top: 4em;
   }
-  main nav {
+  nav {
     top: 0;
   }
-  main nav .nav-li p {
-    display: none;
-  }
-  main footer {
+  footer {
     padding-bottom: 3em;
   }
   .grid {
@@ -66,6 +63,24 @@ footer {
   .grid {
     display: block;
     padding: 1em;
+  }
+  #search {
+    position: fixed;
+    width: 100vw;
+    bottom: 5em;
+    background-color: rgba(45, 54, 66, 0.5);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+  }
+  #search input[type=search] {
+    width: 70vw;
+    font-size: 1.15em;
+    margin: 0;
+  }
+  #search input[type=submit] {
+    margin: 0;
+    margin-top: 1em;
+    margin-bottom: 1em;
   }
   footer {
     padding-bottom: 7em;
@@ -312,7 +327,7 @@ button:hover, button:focus {
 }
 
 #signIn .content, #register .content {
-  background-color: #394d5c;
+  background-color: #1c262e;
   margin: auto;
   border-radius: 0.2em;
   max-height: 50em;
@@ -331,7 +346,7 @@ button:hover, button:focus {
   color: #ff3e3e;
 }
 
-form input[type=email], form input[type=checkbox], form input[type=text], form input[type=password] {
+form input[type=number], form input[type=search], form input[type=email], form input[type=checkbox], form input[type=text], form input[type=password] {
   border-radius: 0.2em;
   padding: .5em;
   padding-left: 1em;
@@ -342,12 +357,15 @@ form input[type=email], form input[type=checkbox], form input[type=text], form i
   transition: 0.3s;
 }
 
-form input[type=email]:focus, form input[type=checkbox]:focus, form input[type=text]:focus, form input[type=password]:focus {
+form input[type=number]:focus, form input[type=search]:focus, form input[type=email]:focus, form input[type=checkbox]:focus, form input[type=text]:focus, form input[type=password]:focus {
   outline-color: #1792df;
 }
 
-form input[type=password] {
+form input[type=button], form input[type=submit] {
   background-color: #00000000;
+  color: #949494;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
 label {
@@ -372,6 +390,7 @@ label {
 
 .button:hover, .button:focus {
   border-radius: 0.5em;
+  color: #58d68d;
   background: radial-gradient(#539e721f 0, rgba(0, 0, 0, 0) 75%);
 }
 /*# sourceMappingURL=app.css.map */

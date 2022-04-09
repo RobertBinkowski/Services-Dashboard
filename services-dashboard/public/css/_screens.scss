@@ -3,19 +3,13 @@
 @media only screen and (min-width: 600px) {
     main{
       padding-top:4em;
-      nav {
-        top: 0;
-        .nav-li {
-          p{
-            display: none;
-          }
-        }
-      }
-      footer{
-        padding-bottom: 3em;
-      }
     }
-
+    nav {
+        top: 0;
+    }
+    footer{
+        padding-bottom: 3em;
+    }
     .grid{
       display: flex;
       padding: 3em;
@@ -54,6 +48,24 @@
     .grid{
       display: block;
       padding: 1em;
+    }
+    #search{
+        position: fixed;
+        width: 100vw;
+        bottom: 5em;
+        background-color: $nav-bg;
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        input[type=search]{
+            width: 70vw;
+            font-size: 1.15em;
+            margin: 0;
+        }
+        input[type=submit]{
+            margin: 0;
+            margin-top:1em;
+            margin-bottom:1em;
+        }
     }
 
     footer {

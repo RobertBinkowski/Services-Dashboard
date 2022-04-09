@@ -66,21 +66,21 @@
                             aria-haspopup="true" aria-expanded="false" v-pre>
                             <li class="nav-li">
                                 <p class="fa-solid fa-search"></p>
-                                <strong class="nav-txt">search</strong>
+                                <strong class="nav-txt"> Search</strong>
                             </li>
                         </a>
-                        <a class="nav-a" href="{{ url('/add') }}" data-bs-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false" v-pre>
+                        <a class="nav-a" href="{{ url('/addservice') }}" data-bs-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false" v-pre>
                             <li class="nav-li">
                                 <p class="fa-solid fa-add"></p>
-                                <strong class="nav-txt">add</strong>
+                                <strong class="nav-txt"> Add Service</strong>
                             </li>
                         </a>
-                        <a class="nav-a" href="{{ url('/user') }}" data-bs-toggle="dropdown"
+                        <a class="nav-a" href="{{ url('/account') }}" data-bs-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false" v-pre>
                             <li class="nav-li">
                                 <p class="fa-solid fa-user"></p>
-                                <strong class="nav-txt">User</strong>
+                                <strong class="nav-txt"> Account</strong>
                             </li>
                         </a>
 
