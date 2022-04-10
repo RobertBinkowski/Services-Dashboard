@@ -64,6 +64,9 @@ footer {
     display: block;
     padding: 1em;
   }
+  .grid div {
+    margin-top: 1em;
+  }
   #search {
     position: fixed;
     width: 100vw;
@@ -346,26 +349,77 @@ button:hover, button:focus {
   color: #ff3e3e;
 }
 
-form input[type=number], form input[type=search], form input[type=email], form input[type=checkbox], form input[type=text], form input[type=password] {
+form textarea, form input[type=number], form input[type=search], form input[type=email], form input[type=checkbox], form input[type=text], form input[type=password] {
   border-radius: 0.2em;
   padding: .5em;
   padding-left: 1em;
   padding-right: 1em;
   outline: 3px solid #00000000;
   border: none;
+  resize: none;
+  width: 50em;
+  max-width: 400px;
+  font-size: 1em;
   -webkit-transition: 0.3s;
   transition: 0.3s;
+  border-bottom: 2px solid #58d68d;
+  border-right: 2px solid #58d68d;
 }
 
-form input[type=number]:focus, form input[type=search]:focus, form input[type=email]:focus, form input[type=checkbox]:focus, form input[type=text]:focus, form input[type=password]:focus {
+form textarea:focus, form input[type=number]:focus, form input[type=search]:focus, form input[type=email]:focus, form input[type=checkbox]:focus, form input[type=text]:focus, form input[type=password]:focus {
   outline-color: #1792df;
 }
 
+form textarea:disabled, form input[type=number]:disabled, form input[type=search]:disabled, form input[type=email]:disabled, form input[type=checkbox]:disabled, form input[type=text]:disabled, form input[type=password]:disabled {
+  background-color: #00000000;
+  color: #1792df;
+  font-weight: bold;
+}
+
+form textarea {
+  height: 5em;
+  font-size: 1.2em;
+}
+
 form input[type=button], form input[type=submit] {
+  width: 50em;
+  max-width: 400px;
+  margin: 0;
+  margin-top: .5em;
   background-color: #00000000;
   color: #949494;
   -webkit-transition: 0.3s;
   transition: 0.3s;
+  font-weight: bold;
+}
+
+form input[type=button]:disabled, form input[type=submit]:disabled {
+  border-color: rgba(194, 39, 39, 0.836);
+  background-color: #c96d6d83;
+}
+
+form input[type=button]:disabled:hover, form input[type=submit]:disabled:hover {
+  border-radius: 1em;
+  color: #949494;
+}
+
+#deleteAccount {
+  border-color: rgba(194, 39, 39, 0.836);
+  color: rgba(194, 39, 39, 0.836);
+}
+
+#deleteAccount:hover {
+  background-color: #c96d6d83;
+  color: white;
+}
+
+.div-user-img {
+  text-align: center;
+}
+
+.div-user-img p {
+  font-size: 6em;
+  color: #1792df;
 }
 
 label {
@@ -378,7 +432,7 @@ label {
 }
 
 /* ------------------------------------- BUTTON */
-.button {
+.button, button {
   padding: 1em;
   margin: 1em;
   cursor: pointer;
@@ -388,8 +442,8 @@ label {
   transition: 0.3s;
 }
 
-.button:hover, .button:focus {
-  border-radius: 0.5em;
+.button:hover, .button:focus, button:hover, button:focus {
+  border-radius: 0.2em;
   color: #58d68d;
   background: radial-gradient(#539e721f 0, rgba(0, 0, 0, 0) 75%);
 }

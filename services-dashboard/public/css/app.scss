@@ -200,22 +200,68 @@ button{
     }
 }
 form{
-    input[type=number],input[type=search],input[type=email],input[type=checkbox],input[type=text],input[type=password]{
+    textarea, input[type=number], input[type=search], input[type=email],input[type=checkbox],input[type=text],input[type=password]{
         border-radius:$rad-1;
         padding: .5em;
         padding-left:1em;
         padding-right:1em;
         outline: 3px solid #00000000;
         border: none;
+        resize: none;
+        width: 50em;
+        max-width: 400px;
+        font-size: 1em;
         transition: $tr-s;
+        border-bottom: 2px solid $acc-2;
+        border-right: 2px solid $acc-2;
         &:focus{
             outline-color: $acc-1;
         }
+        &:disabled{
+            background-color: #00000000;
+            color: $acc-1;
+            font-weight: bold;
+        }
+    }
+    textarea{
+        height: 5em;
+        font-size: 1.2em;
     }
     input[type=button],input[type=submit]{
+        width: 50em;
+        max-width: 400px;
+        margin: 0;
+        margin-top: .5em;
         background-color: #00000000;
         color: $txt-1;
         transition: $tr-s;
+        font-weight: bold;
+        &:disabled{
+            border-color: $txt-red;
+            background-color: #c96d6d83;
+            &:hover{
+                border-radius: $rad-2;
+                color: $txt-1;
+            }
+        }
+    }
+}
+#deleteAccount{
+    border-color: $txt-red;
+    color: $txt-red;
+    &:hover{
+        background-color: #c96d6d83;
+        color: white;
+    }
+}
+
+.div-user-img {
+    text-align: center;
+    p{
+        font-size: 6em;
+
+        color: $acc-1;
+
     }
 }
 
@@ -229,15 +275,15 @@ label{
 
 /* ------------------------------------- BUTTON */
 
-.button {
+.button , button{
   padding: 1em;
   margin: 1em;
   cursor: pointer;
   border: 1px solid $acc-2;
-  border-radius: 1em;
+  border-radius: $rad-2;
   transition: $tr-s;
   &:hover, &:focus {
-    border-radius: 0.5em;
+    border-radius: $rad-1;
     color: $acc-2;
     @include gradient();
   }

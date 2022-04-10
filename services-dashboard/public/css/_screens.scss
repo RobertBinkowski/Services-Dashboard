@@ -48,6 +48,9 @@
     .grid{
       display: block;
       padding: 1em;
+      div{
+        margin-top: 1em;
+      }
     }
     #search{
         position: fixed;

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id('id')->autoIncrement();
             $table->dateTime('date')->date_timestamp_get();
             $table->string('address');
-            $table->string('doc_location');
+            $table->string('document');
             $table->string('details');
             $table->foreignId('users');
             $table->foreignId('service');
