@@ -5,7 +5,7 @@
         <h1>Account</h1>
         <h2>Details</h2>
         <br>
-        <form action="">
+        <form action="" method="POST">
             <div class="div-user-img">
                 {{-- <img src="img/logo.png" alt="Profile Photo" class="userImg"> --}}
                 <p class="fa-solid fa-user"></p>
@@ -18,6 +18,8 @@
             <label for="address">Address</label><br>
             <textarea type="text" name="address" disabled>{{ Auth::user()->address }}</textarea><br>
             <input type="submit" class="button" value="Save Changes" disabled><br>
+        </form>
+        <form action="" method="POST">
             <input type="submit" class="button" value="Delete Account" id="deleteAccount">
         </form>
     </section>

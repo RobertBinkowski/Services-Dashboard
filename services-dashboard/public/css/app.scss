@@ -213,7 +213,6 @@ form{
         font-size: 1em;
         transition: $tr-s;
         border-bottom: 2px solid $acc-2;
-        border-right: 2px solid $acc-2;
         &:focus{
             outline-color: $acc-1;
         }

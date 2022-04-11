@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\errorManager;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//Routes
 Route::get('/', function () {
     return view('welcome');
 });
@@ -32,3 +34,6 @@ Route::get('/account', function () {
 Route::get('/addservice', function () {
     return view('addservice');
 });
+
+//Fallback Route
+Route::fallback(errorManager::class);
