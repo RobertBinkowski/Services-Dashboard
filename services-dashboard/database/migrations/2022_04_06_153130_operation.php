@@ -13,12 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('operation', function(Blueprint $table){
+        Schema::create('operations', function(Blueprint $table){
             $table->id('id')->autoIncrement();
             $table->dateTime('start_date')->date_timestamp_get();
             $table->dateTime('end_date')->nullable();
             $table->double('duration');
             $table->foreignId('contract');
+            $table->timestamp('creation_at')->date_timestamp_set();
+            $table->timestamp('updated_at')->date_timestamp_set();
         });
     }
 

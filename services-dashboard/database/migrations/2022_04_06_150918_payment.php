@@ -13,9 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('payment', function (Blueprint $table){
+        Schema::create('payments', function (Blueprint $table){
             $table->id('id')->autoIncrement();
-            $table->timestamp('created_date')->date_timestamp_set();
+            $table->timestamp('creation_at')->date_timestamp_set();
+            $table->timestamp('updated_at')->date_timestamp_set();
             $table->enum('type', ['deposit', 'payment']);
             $table->string('stripe');
             $table->foreignId('users');
