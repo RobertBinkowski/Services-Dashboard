@@ -22,7 +22,7 @@ class ServiceFactory extends Factory
             'address' => $this->faker->address(),
             'score' => $this->faker->numberBetween(0,10),
             'price' => $this->faker->numberBetween(12,500),
-            'users' => $this->faker->numberBetween(0 ,100),
+            'users' => $this->faker->numberBetween(0 ,\App\Models\User::count()),
         ];
     }
 }
