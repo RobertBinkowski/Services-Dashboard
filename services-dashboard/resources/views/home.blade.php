@@ -7,19 +7,62 @@
     </div>
     <div>
         <div class="cards grid">
-            <div>
-                <h3>Your Services</h3>
+            <div id="jobs">
+                <h2>Jobs</h2>
+                <a href="{{ url('/#') }}" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                    <h3>
+                        <p class="fa-solid fa-briefcase"></p>
+                        Active
+                    </h3>
+                </a>
+                <ul>
+                    <a href="{{ url('/#') }}" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                        v-pre>
+                        <li>
+                            Contract One
+                        </li>
+                    </a>
+                </ul>
+                <a href="{{ url('/#') }}" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                    <h3>
+                        <p class="fa-solid fa-check-double"></p>
+                        Completed
+                    </h3>
+                </a>
+                <h3></h3>
+                <ul>
+                    <a href="{{ url('/#') }}" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                        v-pre>
+                        <li>
+                            Contract One
+                        </li>
+                    </a>
+                </ul>
                 <a href="{{ url('/addservice') }}" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                     v-pre>
                     <p class="fa-solid fa-add"></p>
-                    Create Service
-                </a>
+                    Add Service
+                </a><br>
             </div>
-            <div>
-                <h3>Services</h3>
+            <div id="contracts">
+                <h2>Contracts</h2>
+                <a href="{{ url('/#') }}" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                    <h3>
+                        <p class="fa-solid fa-briefcase"></p>
+                        Active
+                    </h3>
+                </a>
+                <ul>
+                    <a href="{{ url('/#') }}" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                        v-pre>
+                        <li>
+                            Contract One
+                        </li>
+                    </a>
+                </ul>
                 <a href="{{ url('/search') }}" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                     <p class="fa-solid fa-search"></p>
-                    Search For Services
+                    Search
                 </a>
             </div>
         </div>

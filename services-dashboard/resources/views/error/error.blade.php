@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="div-info">
+    <div>
         <h1>Page does not Exist</h1>
         <a href="{{ url('/') }}">
             <p class="fa-solid fa-home"></p>

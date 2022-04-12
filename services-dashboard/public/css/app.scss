@@ -170,6 +170,8 @@ section{
 .grid {
   grid-gap: 1em;
   max-width: 100%;
+  max-width: 1500px;
+  margin: auto;
 }
 button{
     background-color: #00000000;
@@ -268,6 +270,8 @@ label{
     font-size: 1.1em;
 }
 .div-info{
+    max-width: 1500px;
+    margin: auto;
     padding-left: 1em;
     text-align: left;
 }

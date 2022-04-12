@@ -305,6 +305,8 @@ section {
 .grid {
   grid-gap: 1em;
   max-width: 100%;
+  max-width: 1500px;
+  margin: auto;
 }
 
 button {
@@ -426,6 +428,8 @@ label {
 }
 
 .div-info {
+  max-width: 1500px;
+  margin: auto;
   padding-left: 1em;
   text-align: left;
 }
