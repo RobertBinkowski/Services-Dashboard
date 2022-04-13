@@ -19,6 +19,7 @@ return new class extends Migration
             $table->timestamp('updated_at')->date_timestamp_set();
             $table->string('name');
             $table->string('address');
+            $table->double('range')->default(100);
             $table->double('score')->nullable();
             $table->double('price')->nullable();
             $table->foreignId('users');
