@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id('id')->autoIncrement();
             $table->dateTime('start_date')->date_timestamp_get();
             $table->dateTime('end_date')->nullable();
-            $table->double('duration');
-            $table->foreignId('contract');
+            $table->double('duration')->nullable();
+            $table->foreignId('contracts');
             $table->timestamp('creation_at')->date_timestamp_set();
             $table->timestamp('updated_at')->date_timestamp_set();
         });

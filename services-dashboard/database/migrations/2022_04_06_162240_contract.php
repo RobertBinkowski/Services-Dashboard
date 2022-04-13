@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::create('contracts', function(Blueprint $table){
             $table->id('id')->autoIncrement();
-            $table->dateTime('date')->date_timestamp_get();
             $table->string('address');
             $table->string('document');
             $table->string('details');
@@ -23,6 +22,7 @@ return new class extends Migration
             $table->foreignId('service');
             $table->timestamp('creation_at')->date_timestamp_set();
             $table->timestamp('updated_at')->date_timestamp_set();
+            $table->tinyInteger('completed')->FALSE;
         });
     }
 
