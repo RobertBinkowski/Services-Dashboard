@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Account')
+
 @section('content')
     <section class="div-info">
         <h1>Account</h1>

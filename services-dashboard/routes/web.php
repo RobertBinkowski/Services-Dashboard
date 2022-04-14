@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\errorManager;
+use App\Http\Controllers\Services;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,13 +24,15 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/search', function () {
-    return view('search');
-});
+Route::get('/search', function () {return view('search');});
+
+Route::get('/service/{id}', [App\Http\Controllers\ServicesController::class, 'show']);
 
 Route::get('/account', function () {
     return view('account');
 });
+
+Route::get('/application/{id}', [App\Http\Controllers\ServicesController::class, 'application']);
 
 Route::get('/addservice', function () {
     return view('addservice');

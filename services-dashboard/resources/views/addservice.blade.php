@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Create Service')
+
 @section('content')
     <div class="div-info">
         <h1>Add Service</h1>
