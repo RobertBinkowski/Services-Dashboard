@@ -27,7 +27,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $data = DB::table('users');
+        $data = DB::table('services')->where([
+            'users' => \App\Models\User::class
+        ])->get();
         return view('home',['services'=>$data]);
     }
 }
