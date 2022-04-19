@@ -17,77 +17,91 @@
                             v-pre>
                             <h3>
                                 <p class="fa-solid fa-briefcase"></p>
-                                Active
+                                Current
                             </h3>
                         </a>
                         <ul>
-                            @foreach ($services as $service)
-                                @if (count($services) > 1)
-                                    <a href="{{ url('/services/$service') }}" data-bs-toggle="dropdown"
-                                        aria-haspopup="true" aria-expanded="false" v-pre>
-                                        <li>
-                                            {{ $service->name }}
-                                        </li>
-                                    </a>
-                                @else
-                                    <a href="{{ url('/services/$service') }}" data-bs-toggle="dropdown"
-                                        aria-haspopup="true" aria-expanded="false" v-pre>
-                                        <li>
-                                            <p class="fa-solid fa-add"></p>
-                                            More
-                                        </li>
-                                    </a>
-                                @break
-                            @endif
-                        @endforeach
 
-                    </ul>
+
+                        </ul>
+                    </div>
+                    <div>
+                        <a href="{{ url('/#') }}" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                            v-pre>
+                            <h3>
+                                <p class="fa-solid fa-check-double"></p>
+                                Completed
+                            </h3>
+                        </a>
+                        <ul>
+                            <a href="{{ url('/#') }}" data-bs-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false" v-pre>
+                                <li>
+                                    Contract One
+                                </li>
+                            </a>
+                        </ul>
+                    </div>
                 </div>
-                <div>
+
+            </div>
+            <div id="contracts" class="card">
+                <h2>Contracts</h2>
+                <a href="{{ url('/#') }}" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                    <h3>
+                        <p class="fa-solid fa-briefcase"></p>
+                        Active
+                    </h3>
+                </a>
+                <ul>
                     <a href="{{ url('/#') }}" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                         v-pre>
-                        <h3>
-                            <p class="fa-solid fa-check-double"></p>
-                            Completed
-                        </h3>
+                        <li>
+                            Contract One
+                        </li>
                     </a>
-                    <ul>
-                        <a href="{{ url('/#') }}" data-bs-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false" v-pre>
-                            <li>
-                                Contract One
-                            </li>
-                        </a>
-                    </ul>
-                </div>
+                </ul>
+                <a href="{{ url('/search') }}" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                    <p class="fa-solid fa-search"></p>
+                    Search
+                </a>
             </div>
+            <div class="card">
+                <a href="{{ url('#') }}" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                    <h3>
+                        <p class="fa-solid fa-briefcase"></p>
+                        Services
+                    </h3>
+                </a>
+                <ul>
+                    @foreach ($services as $service)
+                        @if ($loop->iteration != 6)
+                            <a href="{{ url('service', ['id' => $service->id]) }}" data-bs-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false" v-pre>
+                                <li>
+                                    {{ $service->name }}
+                                </li>
+                            </a>
+                        @endif
+                        @if ($loop->last)
+                            <br>
+                            <a href="{{ url('/services/$service') }}" data-bs-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false" v-pre>
+                                <li>
+                                    <p class="fa-solid fa-search"></p>
+                                    More
+                                </li>
+                            </a>
+                        @break
+                    @endif
+                @endforeach
+
+            </ul>
             <a href="{{ url('/addservice') }}" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                 v-pre>
                 <p class="fa-solid fa-add"></p>
-                Add Service
+                Create Service
             </a><br>
-        </div>
-        <div id="contracts" class="card">
-            <h2>Contracts</h2>
-            <a href="{{ url('/#') }}" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                <h3>
-                    <p class="fa-solid fa-briefcase"></p>
-                    Active
-                </h3>
-            </a>
-            <ul>
-                <a href="{{ url('/#') }}" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                    v-pre>
-                    <li>
-                        Contract One
-                    </li>
-                </a>
-            </ul>
-            <a href="{{ url('/search') }}" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                v-pre>
-                <p class="fa-solid fa-search"></p>
-                Search
-            </a>
         </div>
     </div>
 </div>
