@@ -27,9 +27,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $data = DB::table('services')->where([
+        $services = DB::table('services')->where([
             'users' => \App\Models\User::class
         ])->get();
-        return view('home',['services'=>$data]);
+        $contracts = DB::table('contracts')->where([
+            'users' => \App\Models\User::class
+        ])->get();
+        return view('home',['services'=>$services,'contracts'=> $contracts]);
     }
 }

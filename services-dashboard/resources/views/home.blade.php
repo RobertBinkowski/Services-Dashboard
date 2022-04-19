@@ -54,12 +54,33 @@
                     </h3>
                 </a>
                 <ul>
-                    <a href="{{ url('/#') }}" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                        v-pre>
-                        <li>
-                            Contract One
-                        </li>
-                    </a>
+                    @foreach ($contracts as $contract)
+                        @if ($loop->iteration != 6)
+                            <a href="{{ url('contract', ['id' => $contract->id]) }}" data-bs-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false" v-pre>
+                                <li>
+                                    {{ $contract->details }}
+                                    <br> <br>
+                                    @if ($contract->completed == 1)
+                                        Complete
+                                    @else
+                                        Still Working
+                                    @endif
+                                </li>
+                            </a>
+                        @endif
+                        @if ($loop->last)
+                            <br>
+                            <a href="{{ url('#') }}" data-bs-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false" v-pre>
+                                <li>
+                                    <p class="fa-solid fa-search"></p>
+                                    More
+                                </li>
+                            </a>
+                        @endif
+                    @endforeach
+
                 </ul>
                 <a href="{{ url('/search') }}" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                     <p class="fa-solid fa-search"></p>
@@ -85,35 +106,34 @@
                         @endif
                         @if ($loop->last)
                             <br>
-                            <a href="{{ url('/services/$service') }}" data-bs-toggle="dropdown" aria-haspopup="true"
+                            <a href="{{ url('#') }}" data-bs-toggle="dropdown" aria-haspopup="true"
                                 aria-expanded="false" v-pre>
                                 <li>
                                     <p class="fa-solid fa-search"></p>
                                     More
                                 </li>
                             </a>
-                        @break
-                    @endif
-                @endforeach
+                        @endif
+                    @endforeach
 
-            </ul>
-            <a href="{{ url('/addservice') }}" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                v-pre>
-                <p class="fa-solid fa-add"></p>
-                Create Service
-            </a><br>
+                </ul>
+                <a href="{{ url('/addservice') }}" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                    v-pre>
+                    <p class="fa-solid fa-add"></p>
+                    Create Service
+                </a><br>
+            </div>
         </div>
     </div>
-</div>
 @endsection
 
 
 <style scoped>
-.card {
+    .card {
 
-    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.7);
-    padding: 1em;
+        box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.7);
+        padding: 1em;
 
-}
+    }
 
 </style>
