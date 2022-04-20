@@ -59,13 +59,14 @@
                             <a href="{{ url('contract', ['id' => $contract->id]) }}" data-bs-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false" v-pre>
                                 <li>
-                                    {{ $contract->details }}
-                                    <br> <br>
-                                    @if ($contract->completed == 1)
-                                        Complete
-                                    @else
-                                        Still Working
-                                    @endif
+                                    {{ $contract->service }}
+                                    <br> <br><strong>
+                                        @if ($contract->completed == 1)
+                                            Complete
+                                        @else
+                                            Still Working
+                                        @endif
+                                    </strong>
                                 </li>
                             </a>
                         @endif
@@ -74,7 +75,7 @@
                             <a href="{{ url('#') }}" data-bs-toggle="dropdown" aria-haspopup="true"
                                 aria-expanded="false" v-pre>
                                 <li>
-                                    <p class="fa-solid fa-search"></p>
+                                    <p class="fa-solid fa-caret-down"></p>
                                     More
                                 </li>
                             </a>
@@ -109,7 +110,7 @@
                             <a href="{{ url('#') }}" data-bs-toggle="dropdown" aria-haspopup="true"
                                 aria-expanded="false" v-pre>
                                 <li>
-                                    <p class="fa-solid fa-search"></p>
+                                    <p class="fa-solid fa-caret-down"></p>
                                     More
                                 </li>
                             </a>
