@@ -28,6 +28,8 @@ Route::get('/search', function () {return view('search');});
 
 Route::get('/service/{id}', [App\Http\Controllers\ServicesController::class, 'show']);
 
+Route::get('/myservices', [App\Http\Controllers\ServicesController::class, 'myservices']);// No Blade
+
 Route::get('/account', function () {
     return view('account');
 });

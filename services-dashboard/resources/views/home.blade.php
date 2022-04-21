@@ -89,10 +89,11 @@
                 </a>
             </div>
             <div class="card">
-                <a href="{{ url('#') }}" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                <a href="{{ url('/myservices') }}" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                    v-pre>
                     <h3>
                         <p class="fa-solid fa-briefcase"></p>
-                        Services
+                        Your Services
                     </h3>
                 </a>
                 <ul>
@@ -107,7 +108,7 @@
                         @endif
                         @if ($loop->last)
                             <br>
-                            <a href="{{ url('#') }}" data-bs-toggle="dropdown" aria-haspopup="true"
+                            <a href="{{ url('/myservices') }}" data-bs-toggle="dropdown" aria-haspopup="true"
                                 aria-expanded="false" v-pre>
                                 <li>
                                     <p class="fa-solid fa-caret-down"></p>
