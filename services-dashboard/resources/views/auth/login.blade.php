@@ -32,8 +32,8 @@
                     </span>
                 @enderror
                 <br>
-                <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                <label for="remember">
+                <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}><label
+                    for="remember">
                     {{ __('Remember Me') }}
                 </label>
                 <br>

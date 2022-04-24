@@ -3,6 +3,9 @@
 use App\Http\Controllers\errorManager;
 use App\Http\Controllers\Services;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ServicesController;
+use App\Http\Controllers\ContractController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,20 +25,21 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::get('/search', function () {return view('search');});
 
-Route::get('/service/{id}', [App\Http\Controllers\ServicesController::class, 'show']);
+//Service Routes
+Route::get('/service/{id}', [ServicesController::class, 'show']);
+Route::get('/myservices', [ServicesController::class, 'myservices']);
+Route::get('/apply/{id}', [ContractController::class, 'index']);
+Route::post('/apply',[ContractController::class, 'store']);
 
-Route::get('/myservices', [App\Http\Controllers\ServicesController::class, 'myservices']);// No Blade
-
+//Account
 Route::get('/account', function () {
     return view('account');
 });
-
-Route::get('/application/{id}', [App\Http\Controllers\ServicesController::class, 'application']);
-
+//Create Service
 Route::get('/addservice', function () {
     return view('addservice');
 });

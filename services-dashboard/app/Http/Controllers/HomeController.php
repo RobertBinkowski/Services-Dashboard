@@ -7,6 +7,7 @@ use \App\Models\Service;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Signature;
 
 class HomeController extends Controller
 {
