@@ -11,13 +11,17 @@
                 Address: <strong>{{ $service['address'] }}</strong>
             </li>
             <li>
-                Score: <strong>{{ $service['score'] }}</strong>
+                Score: <strong>{{ $service['score'] }}/10</strong>
             </li>
             <li>
                 Price: <strong>{{ $service['price'] }}</strong>/h
             </li>
         </ul>
         <br>
-        <a href="/application/{{ $service['id'] }}" class="button">Apply</a>
+        @if ($service->users === Auth::user()->id)
+            <a href="/service/edit/{{ $service['id'] }}" class="button">Edit</a>
+        @else
+            <a href="/service/apply/{{ $service['id'] }}" class="button">Apply</a>
+        @endif
     </div>
 @endsection

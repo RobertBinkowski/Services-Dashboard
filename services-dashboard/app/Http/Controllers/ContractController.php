@@ -6,15 +6,21 @@ use Illuminate\Http\Request;
 use App\Models\Contract;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class ContractController extends Controller
 {
     public function index($id){
-        return view("service.apply",[
-            'service' => \App\Models\Service::findOrFail($id),
+        $contract = \App\Models\Contract::find($id);
+        $serviceName = \App\Models\Service::find($contract->service);
+        $operations = \App\Models\Operation::find($id);
+        return view("contract.contract",[
+            'contract' => $contract,
+            'service' => $serviceName,
+            'operations' => $operations
         ]);
     }
-
     public function store(Request $request)
     {
         //Save Signature
@@ -37,5 +43,11 @@ class ContractController extends Controller
 
 
         return back()->with('success', 'Form successfully submitted with signature');
+    }
+    public function mycontracts(){
+        $contracts = \App\Models\Contract::find(Auth::user()->id)->get();
+        return view('contract.contracts', [
+            'contracts' => $contracts,
+        ]);
     }
 }

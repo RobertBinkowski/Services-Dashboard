@@ -15,7 +15,7 @@
                 <strong>{{ $message }}</strong>
             </div>
         @endif
-        <form method="POST" action="{{ url('/apply') }}">
+        <form method="POST" action="{{ url('/service/apply') }}">
             @csrf
             <input type="hidden" name="name" value="{{ Auth::user()->id }}">
             <p>

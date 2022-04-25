@@ -9,9 +9,14 @@ use Illuminate\Support\Facades\DB;
 
 class ServicesController extends Controller
 {
-    public function show($id){
+    public function index($id){
         return view('service.service', [
-            'service' => \App\Models\Service::findOrFail($id),
+            'service' => \App\Models\Service::find($id),
+        ]);
+    }
+    public function name($name){
+        return view('service.service', [
+            'service' => \App\Models\Service::find($name),
         ]);
     }
     public function myservices(){
@@ -21,6 +26,11 @@ class ServicesController extends Controller
         ])->get();
         return view('service.myservices', [
             'services' => $services,
+        ]);
+    }
+    public function apply($id){
+        return view("service.apply",[
+            'service' => \App\Models\Service::find($id),
         ]);
     }
 }

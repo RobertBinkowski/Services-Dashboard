@@ -46,12 +46,12 @@
 
             </div>
             <div id="contracts" class="card">
-                <h2>Contracts</h2>
-                <a href="{{ url('/#') }}" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                    <h3>
+                <a href="{{ url('/contract') }}" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                    v-pre>
+                    <h2>
                         <p class="fa-solid fa-briefcase"></p>
-                        Active
-                    </h3>
+                        Contracts
+                    </h2>
                 </a>
                 <ul>
                     @foreach ($contracts as $contract)
@@ -89,12 +89,12 @@
                 </a>
             </div>
             <div class="card">
-                <a href="{{ url('/myservices') }}" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                <a href="{{ url('/service') }}" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                     v-pre>
-                    <h3>
+                    <h2>
                         <p class="fa-solid fa-briefcase"></p>
                         Your Services
-                    </h3>
+                    </h2>
                 </a>
                 <ul>
                     @foreach ($services as $service)
