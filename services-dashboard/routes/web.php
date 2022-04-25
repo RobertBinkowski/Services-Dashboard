@@ -39,7 +39,7 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::prefix('/search')->group( function () {
     Route::get('/', [SearchController::class, "index"]);
     // Route::post('/{name}', [SearchController::class, "searchName"]);
-    Route::post('/{id}', [SearchController::class, "searchID"]);
+    Route::post('/', [SearchController::class, "searchName"]);
 });
 
 //Service Routes

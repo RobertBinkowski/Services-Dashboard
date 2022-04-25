@@ -11,10 +11,10 @@ class SearchController extends Controller
         return view('search');
     }
 
-    public function searchName($name){
+    public function searchName(Request $request){
         $services = DB::table('services')->where([
-            "name" => $name,
-        ]);
+            "name" => $request->search,
+        ])->get();
         return view('search',[
             "services" => $services,
         ]);
