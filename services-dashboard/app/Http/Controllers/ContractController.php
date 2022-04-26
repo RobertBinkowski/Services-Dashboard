@@ -50,4 +50,19 @@ class ContractController extends Controller
             'contracts' => $contracts,
         ]);
     }
+    public function update(Request $request){
+        DB::table('contracts')
+              ->where('id', $request->id)
+              ->limit(1)
+              ->update([
+                'details' => $request->details,
+                'address' => $request->address,
+            ]);
+            return back()->with('success', 'successfully updated');
+    }
+    public function delete($id){
+        $data = Contract::find($id);
+        $data->delete();
+        return back()->with('success', 'successfully Deleted');
+    }
 }

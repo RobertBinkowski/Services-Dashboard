@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccountController;
 use App\Http\Controllers\errorManager;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -34,38 +35,49 @@ Route::get('/', function () {return view('welcome');});
 
 Auth::routes();
 
+//Dashboard
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
+//Search
 Route::prefix('/search')->group( function () {
     Route::get('/', [SearchController::class, "index"]);
-    // Route::post('/{name}', [SearchController::class, "searchName"]);
     Route::post('/', [SearchController::class, "searchName"]);
+    Route::get('/id/{id}', [ServicesController::class, 'find']);
+
 });
 
 //Service Routes
 Route::prefix('/service')->group( function () {
+    //View
     Route::get('/', [ServicesController::class, 'myservices']);
-    Route::get('/{id}', [ServicesController::class, 'index']);
-    Route::get('/{name}', [ServicesController::class, 'name']);
+    Route::get('/id/{id}', [ServicesController::class, 'find']);
+    Route::get('/name/{name}', [ServicesController::class, 'name']);
+    //Apply
     Route::get('/apply/{id}', [ServicesController::class, 'apply']);
     Route::post('/apply',[ContractController::class, 'store']);
-    Route::get('/edit/{id}', [ServicesController::class, 'edit']); // Not Finished
+    //Create
+    Route::get('/create', [ServicesController::class, 'createForm']);
+    Route::post('/create', [ServicesController::class, 'create']);
+    //Edit
+    Route::get('/edit/{id}', [ServicesController::class, 'edit']);
+    Route::post('/edit', [ServicesController::class, 'update']);
+    //Delete
+    Route::get('/delete/{id}', [ServicesController::class, 'delete']);
 });
 
 
 //Account
-Route::get('/account', function () {
-    return view('account');
+Route::prefix('/account')->group( function (){
+    Route::get('/update/{id}',[AccountController::class, "index"]);
+    Route::post('/update',[AccountController::class, "update"]);
+    Route::get('/delete',[AccountController::class, "delete"]);
 });
+
 //Contract
 Route::prefix('/contract')->group(function(){
     Route::get('/', [ContractController::class, 'mycontracts']);
     Route::get('/{id}', [ContractController::class, 'index']);
-});
-
-//Create Service
-Route::get('/addservice', function () {
-    return view('addservice');
+    Route::post('/', [ContractController::class, 'update']);
 });
 
 //Fallback Route

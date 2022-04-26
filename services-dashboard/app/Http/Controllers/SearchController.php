@@ -19,6 +19,14 @@ class SearchController extends Controller
             "services" => $services,
         ]);
     }
+    public function searchByName($name){
+        $services = DB::table('services')->where([
+            "name" => $name,
+        ])->get();
+        return view('search',[
+            "services" => $services,
+        ]);
+    }
 
     public function searchID($id){
         $services = DB::table('services')->where([

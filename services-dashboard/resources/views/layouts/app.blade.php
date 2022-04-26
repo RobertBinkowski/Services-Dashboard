@@ -75,14 +75,14 @@
                                 <strong class="nav-txt"> Search</strong>
                             </li>
                         </a>
-                        <a class="nav-a" href="{{ url('/addservice') }}" data-bs-toggle="dropdown"
+                        <a class="nav-a" href="{{ url('/service/create') }}" data-bs-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false" v-pre>
                             <li class="nav-li">
                                 <p class="fa-solid fa-add"></p>
                                 <strong class="nav-txt"> Add Service</strong>
                             </li>
                         </a>
-                        <a class="nav-a" href="{{ url('/account') }}" data-bs-toggle="dropdown"
+                        <a class="nav-a" href="/account/update/{{ Auth::id() }}" data-bs-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false" v-pre>
                             <li class="nav-li">
                                 <p class="fa-solid fa-user"></p>

@@ -8,6 +8,11 @@
         <h2>Hello, {{ Auth::user()->name }}</h2>
     </div>
     <div>
+        @if ($message = Session::get('success'))
+            <div class="alert">
+                <strong>{{ $message }}</strong>
+            </div>
+        @endif
         <div class="grid">
             <div id="jobs" class="card">
                 <h2>Jobs</h2>
