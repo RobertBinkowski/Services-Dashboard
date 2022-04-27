@@ -45,7 +45,9 @@ class ContractController extends Controller
         return back()->with('success', 'Form successfully submitted with signature');
     }
     public function mycontracts(){
-        $contracts = \App\Models\Contract::find(Auth::user()->id)->get();
+        $contracts = DB::table('contracts')->where([
+            'users' => Auth::id()
+        ])->get();
         return view('contract.contracts', [
             'contracts' => $contracts,
         ]);

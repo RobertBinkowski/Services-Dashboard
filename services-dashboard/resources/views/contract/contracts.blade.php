@@ -9,43 +9,55 @@
     </div>
     <div>
         <div>
-            <ul>
-                @foreach ($contracts as $contract)
-                    <a href="{{ url('contract', ['id' => $contract->id]) }}" data-bs-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false" v-pre>
-                        <li>
-                            <h3>Service</h3>
-                            <p>
-                                Address: <br> {{ $contract->address }} <br>
-                                Details: <br>{{ $contract->details }} <br>
-                                <br><br>
-                                <strong>
-                                    @if ($contract->completed == 1)
-                                        Complete
-                                    @else
-                                        Unfinished
-                                    @endif
-                                </strong>
-                                <br>
-                                details: <br><br>
-                                {{ $contract->details }}
-                                <br><br>
-                                Signature:
+            <div class="grid">
+                <table>
+                    <tr>
+                        <th>Service</th>
+                        <th>Address</th>
+                        <th>Details</th>
+                        <th>Completion</th>
+                        <th>Signature</th>
+                        <th>More</th>
+                    </tr>
+                    @foreach ($contracts as $contract)
+                        <tr>
+
+                            <th>Service</th>
+                            <th>{{ $contract->address }}</th>
+                            <th>{{ $contract->details }}</th>
+                            <th>
+                                @if ($contract->completed == 1)
+                                    Complete
+                                @else
+                                    Unfinished
+                                @endif
+                            </th>
+                            <th>
                                 @if ($contract->document != '')
-                                    <br>
-                                    <img src="/signs/{{ $contract['document'] }}" alt="document signature">
+                                    <img src="/signs/{{ $contract->document }}" alt="document signature">
                                 @else
                                     <strong>
                                         No Signature Provided
                                     </strong>
                                 @endif
-                            </p>
-                        </li>
-                    </a>
-                    <br>
-                @endforeach
-
-            </ul>
+                            </th>
+                            <th>
+                                <a href="{{ url('contract', ['id' => $contract->id]) }}" data-bs-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false" v-pre>
+                                    <p class="fa-solid fa-pen-to-square"></p>
+                                </a>
+                            </th>
+                        </tr>
+                    @endforeach
+                </table>
+            </div>
         </div>
     </div>
 @endsection
+
+<style scoped>
+    img {
+        height: 3em;
+    }
+
+</style>

@@ -30,8 +30,12 @@
                     <th>{{ $service->price }}</th>
                     <th>{{ $service->score }}/10</th>
                     <th>
-                        <a href="/service/edit/{{ $service->id }}">Edit</a>
-                        <a href="/service/delete/{{ $service->id }}">Delete</a>
+                        <a href="/service/edit/{{ $service->id }}">
+                            <p class="fa-solid fa-pen-to-square"></p>
+                        </a>
+                        <a href="/service/delete/{{ $service->id }}">
+                            <p class="fa-solid fa-trash"></p>
+                        </a>
                     </th>
                 </tr>
             @endforeach

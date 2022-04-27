@@ -50,6 +50,11 @@
                     </ol>
                 </div>
             @endisset
+            {{-- @if ($contract->completed == 0)
+                @if ($contract->service() == )
+                    Something
+                @endif
+            @endif --}}
         </div>
     </div>
 @endsection

@@ -7,7 +7,6 @@ use \App\Models\Service;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use App\Signature;
 
 class HomeController extends Controller
 {
@@ -29,11 +28,19 @@ class HomeController extends Controller
     public function index()
     {
         $services = DB::table('services')->where([
-            'users' => \App\Models\User::class
+            'users' => Auth::id()
         ])->get();
+
         $contracts = DB::table('contracts')->where([
-            'users' => \App\Models\User::class
+            'users' => Auth::id()
         ])->get();
-        return view('home',['services'=>$services,'contracts'=> $contracts]);
+
+        // Jobs
+        $jobs = DB::table('contracts')->where([
+            'service' => Auth::id() //Change
+        ])->get();
+
+
+        return view('home',['services'=>$services,'contracts'=> $contracts, 'jobs' => $jobs]);
     }
 }
