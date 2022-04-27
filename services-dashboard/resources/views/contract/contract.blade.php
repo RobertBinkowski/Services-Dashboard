@@ -50,11 +50,17 @@
                     </ol>
                 </div>
             @endisset
-            {{-- @if ($contract->completed == 0)
-                @if ($contract->service() == )
-                    Something
+            @if ($contract->completed == 0)
+                {{-- @if ($contract->service() == )
+                    Something --}}
+                    <br>
+                    <br>
+                <a href="{{ url('service/operation', ['id' => $contract->id]) }}" data-bs-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false" v-pre>
+                    Add Work Day
+                </a>
+                {{-- @endif --}}
                 @endif
-            @endif --}}
         </div>
     </div>
 @endsection

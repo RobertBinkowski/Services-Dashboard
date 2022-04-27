@@ -8,6 +8,7 @@ use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\ContractController;
 use App\Http\Controllers\SearchController;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\OperationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -63,6 +64,10 @@ Route::prefix('/service')->group( function () {
     Route::post('/edit', [ServicesController::class, 'update']);
     //Delete
     Route::get('/delete/{id}', [ServicesController::class, 'delete']);
+    //Add operation
+    Route::get('/operation/{id}', [OperationController::class, 'createForm']);
+    Route::post('/operation',[OperationController::class, 'create']);
+    Route::post('/operation',[OperationController::class, 'create']);
 });
 
 

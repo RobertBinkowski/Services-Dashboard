@@ -21,13 +21,12 @@
                 </h2>
                 <div class="grid">
                     <div>
-                        <a href="{{ url('#') }}" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                            v-pre>
-                            <h3>
-                                <p class="fa-solid fa-briefcase"></p>
-                                Current
-                            </h3>
-                        </a>
+                        {{-- <a href="{{ url('#') }}" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre> --}}
+                        <h3>
+                            <p class="fa-solid fa-briefcase"></p>
+                            Current
+                        </h3>
+                        {{-- </a> --}}
                         <ul>
                             @foreach ($jobs as $current)
                                 @if ($current->completed == 0)
@@ -42,20 +41,20 @@
                         </ul>
                     </div>
                     <div>
-                        <a href="{{ url('/#') }}" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                            v-pre>
-                            <h3>
-                                <p class="fa-solid fa-check-double"></p>
-                                Completed
-                            </h3>
-                        </a>
+                        {{-- <a href="{{ url('/#') }}" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                            v-pre> --}}
+                        <h3>
+                            <p class="fa-solid fa-check-double"></p>
+                            Completed
+                        </h3>
+                        {{-- </a> --}}
                         <ul>
                             @foreach ($jobs as $current)
                                 @if ($current->completed == 1)
                                     <a href="{{ url('contract', ['id' => $current->id]) }}" data-bs-toggle="dropdown"
                                         aria-haspopup="true" aria-expanded="false" v-pre>
                                         <li>
-                                            {{ $current->service }}
+                                            {{ $current->details }}
                                         </li>
                                     </a>
                                 @endif
@@ -78,7 +77,7 @@
                         <a href="{{ url('contract', ['id' => $contract->id]) }}" data-bs-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false" v-pre>
                             <li>
-                                {{ $contract->service }}
+                                {{ $contract->details }}
                                 <br> <br><strong>
                                     @if ($contract->completed == 1)
                                         Complete
@@ -91,8 +90,7 @@
                     @endforeach
 
                 </ul>
-                <a href="{{ url('/search') }}" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                    v-pre>
+                <a href="{{ url('/search') }}" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                     <p class="fa-solid fa-search"></p>
                     Search
                 </a>
