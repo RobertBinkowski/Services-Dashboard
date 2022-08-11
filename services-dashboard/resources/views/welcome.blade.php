@@ -19,9 +19,13 @@
     <main>
         <nav>
             <ul class="nav-ul">
-                <li class="nav-loc">
-                    <strong class="nav-txt">{{ config('app.name', 'Laravel') }} - Home</strong>
-                </li>
+                <a class="nav-a" href="{{ url('/') }}">
+                    <li class="nav-li">
+                        <p class="fa-solid fa-home"></p>
+                        {{-- {{ config('app.name', 'Laravel') }} --}}
+                        <strong class="nav-txt">Home</strong>
+                    </li>
+                </a>
                 @if (Route::has('login'))
                     @auth
                         <a href="{{ url('/home') }}" class="nav-a">

@@ -20,7 +20,7 @@ return new class extends Migration
             $table->double('duration')->nullable();
             $table->foreignId('contracts');
             $table->timestamp('creation_at')->date_timestamp_set();
-            $table->timestamp('updated_at')->date_timestamp_set();
+            // $table->timestamp('updated_at')->date_timestamp_set();
         });
     }
 

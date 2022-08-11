@@ -13,15 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('signature', function (Blueprint $table){
             $table->id('id')->autoIncrement();
-            $table->string('name')->unique();
-            $table->string('address')->nullable();
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
-            $table->timestamps();
+            $table->timestamp('creation_at')->date_timestamp_set();
+            // $table->timestamp('updated_at')->date_timestamp_set();
+            $table->foreignId('users');
+            $table->foreignId('contract');
+            $table->string('hash');
         });
     }
 
@@ -32,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        //
     }
 };

@@ -15,10 +15,10 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         //Create Random Data
-        // \App\Models\User::factory(100)->create();
-        // \App\Models\Service::factory(100)->create();
-        // \App\Models\Contract::factory(100)->create();
-        // \App\Models\Operation::factory(100)->create();
-        // \App\Models\Payment::factory(100)->create();
+        \App\Models\User::factory(100)->create();
+        \App\Models\Service::factory(100)->create();
+        \App\Models\Contract::factory(100)->create();
+        \App\Models\Operation::factory(100)->create();
+        \App\Models\Payment::factory(100)->create();
     }
 }

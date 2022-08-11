@@ -21,7 +21,7 @@ return new class extends Migration
             $table->foreignId('users');
             $table->foreignId('service');
             $table->timestamp('creation_at')->date_timestamp_set();
-            $table->timestamp('updated_at')->date_timestamp_set();
+            // $table->timestamp('updated_at')->date_timestamp_set();
             $table->tinyInteger('completed')->FALSE;
         });
     }
