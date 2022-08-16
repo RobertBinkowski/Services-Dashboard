@@ -28,15 +28,17 @@
             <label for="address">Address</label><br><br>
             <input type="text" name="address" value="{{ Auth::user()->address }}">
             <br><br>
-            <label for="details">Details</label><br>
+            <label for="details">Details</label><br><br>
             <textarea type="text" name="details"></textarea><br><br>
+            <label for="contract">Contract</label><br><br>
+            <textarea name="contract" readonly>{{ $service->contract }}</textarea><br><br>
             <label for="signaturePad">Signature</label>
-            <br />
+            <br /><br>
             <div id="signaturePad"></div>
             <br /><br>
-            <input type="button" id="clear" value="Clear" class="button"><br>
-            <label for="submit">*By Applying you agree to our <a href="./">policy</a></label><br>
-            <textarea id="signature64" name="signed" style="display: none"></textarea>
+            <input type="button" id="clear" value="Clear" class="button"><br><br>
+            <textarea id="signature64" name="signature" style="display: none"></textarea>
+            <label for="submit">*By Applying you agree to our <a href="/policy">policy</a></label><br><br>
             <input type="submit" submit class="button" value="Apply">
         </form>
 
@@ -46,7 +48,10 @@
         <script type="text/javascript">
             var signaturePad = $('#signaturePad').signature({
                 syncField: '#signature64',
-                syncFormat: 'PNG'
+                syncFormat: 'PNG',
+                color: '#1792df',
+                background: '#00000000',
+                border: 'none',
             });
             $('#clear').click(function(e) {
                 e.preventDefault();
@@ -68,14 +73,14 @@
         height: 180px;
         width: 400px;
         border-radius: .2em;
-
+        background-color: #00000000;
     }
-
     #signaturePad canvas {
         width: 100% !important;
         height: auto;
         border-radius: .2em;
-        border-bottom: #58d68d solid 2px;
+        border: #58d68d solid 2px;
+        background-color: #00000000;
     }
 
 </style>

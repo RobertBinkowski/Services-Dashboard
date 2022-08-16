@@ -353,26 +353,34 @@ button:hover, button:focus {
 form textarea, form input[type=number], form input[type=search], form input[type=email], form input[type=checkbox], form input[type=text], form input[type=password] {
   border-radius: 0.2em;
   padding: .5em;
+  background-color: #00000000;
   padding-left: 1em;
   padding-right: 1em;
   outline: 3px solid #00000000;
   border: none;
   resize: none;
   width: 50em;
+  color: #1792df;
   max-width: 400px;
   font-size: 1em;
   -webkit-transition: 0.3s;
   transition: 0.3s;
-  border-bottom: 2px solid #58d68d;
+  border: 2px solid #58d68d;
 }
 
 form textarea:focus, form input[type=number]:focus, form input[type=search]:focus, form input[type=email]:focus, form input[type=checkbox]:focus, form input[type=text]:focus, form input[type=password]:focus {
   outline-color: #1792df;
 }
 
-form textarea:disabled, form input[type=number]:disabled, form input[type=search]:disabled, form input[type=email]:disabled, form input[type=checkbox]:disabled, form input[type=text]:disabled, form input[type=password]:disabled {
+form textarea:disabled, form textarea:-moz-read-only, form input[type=number]:disabled, form input[type=number]:-moz-read-only, form input[type=search]:disabled, form input[type=search]:-moz-read-only, form input[type=email]:disabled, form input[type=email]:-moz-read-only, form input[type=checkbox]:disabled, form input[type=checkbox]:-moz-read-only, form input[type=text]:disabled, form input[type=text]:-moz-read-only, form input[type=password]:disabled, form input[type=password]:-moz-read-only {
   background-color: #00000000;
-  color: #1792df;
+  color: #58d68d;
+  font-weight: bold;
+}
+
+form textarea:disabled, form textarea:read-only, form input[type=number]:disabled, form input[type=number]:read-only, form input[type=search]:disabled, form input[type=search]:read-only, form input[type=email]:disabled, form input[type=email]:read-only, form input[type=checkbox]:disabled, form input[type=checkbox]:read-only, form input[type=text]:disabled, form input[type=text]:read-only, form input[type=password]:disabled, form input[type=password]:read-only {
+  background-color: #00000000;
+  color: #58d68d;
   font-weight: bold;
 }
 

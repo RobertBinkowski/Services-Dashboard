@@ -205,22 +205,24 @@ form{
     textarea, input[type=number], input[type=search], input[type=email],input[type=checkbox],input[type=text],input[type=password]{
         border-radius:$rad-1;
         padding: .5em;
+        background-color: #00000000;
         padding-left:1em;
         padding-right:1em;
         outline: 3px solid #00000000;
         border: none;
         resize: none;
         width: 50em;
+        color: $acc-1;
         max-width: 400px;
         font-size: 1em;
         transition: $tr-s;
-        border-bottom: 2px solid $acc-2;
+        border: 2px solid $acc-2;
         &:focus{
             outline-color: $acc-1;
         }
-        &:disabled{
+        &:disabled, &:read-only{
             background-color: #00000000;
-            color: $acc-1;
+            color: $acc-2;
             font-weight: bold;
         }
     }

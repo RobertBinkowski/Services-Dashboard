@@ -16,13 +16,14 @@ return new class extends Migration
         Schema::create('contracts', function(Blueprint $table){
             $table->id('id')->autoIncrement();
             $table->string('address');
-            $table->string('document');
+            // $table->string('document');
             $table->string('details');
             $table->foreignId('users');
             $table->foreignId('service');
-            $table->timestamp('creation_at')->date_timestamp_set();
-            // $table->timestamp('updated_at')->date_timestamp_set();
-            $table->tinyInteger('completed')->FALSE;
+            $table->string('signature');
+            $table->timestamp('created_at')->date_timestamp_set();
+            $table->timestamp('updated_at')->nullable();
+            $table->boolean('completed')->default(0);
         });
     }
 
@@ -33,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('contracts');
     }
 };

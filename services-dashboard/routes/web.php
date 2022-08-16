@@ -85,5 +85,8 @@ Route::prefix('/contract')->group(function(){
     Route::post('/', [ContractController::class, 'update']);
 });
 
+//Policy
+Route::get('/policy',function (){ return view('policy'); });
+
 //Fallback Route
 Route::fallback(errorManager::class);

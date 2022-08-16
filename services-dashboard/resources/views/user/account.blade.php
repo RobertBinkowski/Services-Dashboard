@@ -27,7 +27,7 @@
             <label for="address">Address</label><br>
             <textarea type="text" name="address">{{ $user->address }}</textarea><br>
             <label for="password">Password</label><br>
-            <input type="password" name="password" value="{{ $user->address }}"><br>
+            <input type="password" name="password" required value="{{ $user->address }}"><br>
             <input type="submit" class="button" value="Save Changes"><br>
         </form>
         <form action="{{ url('/account/delete') }}" method="POST">

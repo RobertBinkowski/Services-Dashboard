@@ -48,6 +48,7 @@
                 <input id="password-confirm" type="password" name="password_confirmation" required
                     autocomplete="new-password">
                 <br><br>
+                <label for="submit">*By Applying you agree to our <a href="/policy">policy</a></label><br><br>
                 <button type="submit" class="button">
                     {{ __('Register') }}
                 </button>

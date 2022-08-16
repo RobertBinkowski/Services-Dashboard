@@ -7,6 +7,12 @@
             <h1>{{ config('app.name', 'Laravel') }}</h1>
             <h2>{{ __('Sign In') }}</h2>
 
+            @error('email')
+                <span role="alert">
+                    <strong class="error-message">{{ $message }}</strong>
+                </span>
+            @enderror
+
             <form method="POST" action="{{ route('login') }}">
                 @csrf
 
@@ -15,11 +21,6 @@
                 <input id="email" type="email" class="@error('email') is-invalid @enderror" name="email"
                     value="{{ old('email') }}" required autocomplete="email" autofocus>
                 <br>
-                @error('email')
-                    <span role="alert">
-                        <strong class="error-message">{{ $message }}</strong>
-                    </span>
-                @enderror
                 <br>
                 <label for="password">{{ __('Password') }}</label>
                 <br>
@@ -41,6 +42,7 @@
                     {{ __('Login') }}
                 </button>
                 <br>
+                <label for="submit">*By Applying you agree to our <a href="/policy">policy</a></label><br><br>
                 @if (Route::has('password.request'))
                     <a class="btn btn-link" href="{{ route('password.request') }}">
                         {{ __('Forgot Password') }}

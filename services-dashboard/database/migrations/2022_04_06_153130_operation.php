@@ -19,8 +19,8 @@ return new class extends Migration
             $table->dateTime('end_date')->nullable();
             $table->double('duration')->nullable();
             $table->foreignId('contracts');
-            $table->timestamp('creation_at')->date_timestamp_set();
-            // $table->timestamp('updated_at')->date_timestamp_set();
+            $table->timestamp('created_at')->date_timestamp_set();
+            $table->timestamp('updated_at')->nullable();
         });
     }
 
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('operations');
     }
 };

@@ -47,7 +47,9 @@ class ServicesController extends Controller
         $save->users = $request->user;
         $save->range = $request->range;
         $save->price = $request->price;
+        $save->contract = $request->contract;
         $save->save();
+
         return back()->with('success', 'Form successfully created');
     }
     public function edit($id){
