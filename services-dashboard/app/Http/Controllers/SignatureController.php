@@ -24,19 +24,34 @@ class SignatureController extends Controller
             'service' => \App\Models\Service::find($name),
         ]);
     }
-    public function confirm($signature, $hash){
-        if($hash == Hash::make($signature)){
-            return back()->with('success', 'The Signature is correct');
+
+    public function getForm(){
+        return view('service.signature.signature');
+    }
+
+    public function confirm(Request $request){
+        // Hash Document and Signature
+        $hash = Hash::make($request->signature. $request->document);
+
+        $database = \App\Models\Signature::where('signature', $request->signature)->get();
+
+        if(strcmp($database[0]->hash, $hash) == 0){
+            return back()->with('success', 'The Signature and the Document have not been altered');
         }else{
-            return back()->with('Error', 'The Signature has been altered');
+            return back()->with('success', 'The Signature/Document has been altered');
         }
     }
 
     public function create(Request $request){
-        $hash = Hash::make($request->hash);
+
+        // Hash Both Inputs
+        $hash = Hash::make($request->signature. $request->document);
+
         $save = new Signature;
         $save->users = $request->user;
         $save->contract = $request->contract;
+        $save->signature = $request->signature;
+        $save->document = $request->document;
         $save->hash = $hash;
         $save->save();
         return back()->with('success', 'Form successfully created');

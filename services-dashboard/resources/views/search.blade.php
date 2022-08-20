@@ -22,21 +22,25 @@
     <div>
         @isset($services)
             @foreach ($services as $service)
+            @if ($service->users != Auth::user()->id)
                 <div class="service">
                     <h2>{{ $service->name }}</h2>
                     <p>
                         Address: <br><strong>{{ $service->address }}</strong><br>
-                        Score: <br><strong>{{ $service->score }}</strong><br>
+                        Score: <br><strong>
+                            @if ($service->rating != 0)
+                                {{$service->rating}}/10
+                            @else
+                                No Reviews
+                            @endif
+                        </strong><br>
                         Price: <br><strong>{{ $service->price }}</strong>/h <br>
                     </p>
                     <br><br>
-                    @if ($service->users === Auth::user()->id)
-                        <a href="/service/edit/{{ $service->id }}" class="button">Edit</a>
-                    @else
-                        <a href="/service/apply/{{ $service->id }}" class="button">Apply</a>
-                    @endif
+                    <a href="/service/apply/{{ $service->id }}" class="button">Apply</a>
                     <br><br>
                 </div>
+                @endif
             @endforeach
         @endisset
     </div>

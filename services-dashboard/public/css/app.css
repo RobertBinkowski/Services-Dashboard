@@ -205,8 +205,8 @@ a {
   text-decoration: none;
   color: #949494;
   font-weight: bold;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
   outline: none;
 }
 
@@ -237,8 +237,8 @@ li {
   border-radius: 0.2em;
   padding: 0.3em;
   text-shadow: none;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
 }
 
 li a {
@@ -350,7 +350,7 @@ button:hover, button:focus {
   color: #ff3e3e;
 }
 
-form textarea, form input[type=number], form input[type=search], form input[type=email], form input[type=checkbox], form input[type=text], form input[type=password] {
+form textarea, form input[type=number], form input[type=search], form input[type=email], form input[type=checkbox], form input[type=text], form input[type=password], form input[type=date] {
   border-radius: 0.2em;
   padding: .5em;
   background-color: #00000000;
@@ -363,22 +363,22 @@ form textarea, form input[type=number], form input[type=search], form input[type
   color: #1792df;
   max-width: 400px;
   font-size: 1em;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
   border: 2px solid #58d68d;
 }
 
-form textarea:focus, form input[type=number]:focus, form input[type=search]:focus, form input[type=email]:focus, form input[type=checkbox]:focus, form input[type=text]:focus, form input[type=password]:focus {
+form textarea:focus, form input[type=number]:focus, form input[type=search]:focus, form input[type=email]:focus, form input[type=checkbox]:focus, form input[type=text]:focus, form input[type=password]:focus, form input[type=date]:focus {
   outline-color: #1792df;
 }
 
-form textarea:disabled, form textarea:-moz-read-only, form input[type=number]:disabled, form input[type=number]:-moz-read-only, form input[type=search]:disabled, form input[type=search]:-moz-read-only, form input[type=email]:disabled, form input[type=email]:-moz-read-only, form input[type=checkbox]:disabled, form input[type=checkbox]:-moz-read-only, form input[type=text]:disabled, form input[type=text]:-moz-read-only, form input[type=password]:disabled, form input[type=password]:-moz-read-only {
+form textarea:disabled, form textarea:-moz-read-only, form input[type=number]:disabled, form input[type=number]:-moz-read-only, form input[type=search]:disabled, form input[type=search]:-moz-read-only, form input[type=email]:disabled, form input[type=email]:-moz-read-only, form input[type=checkbox]:disabled, form input[type=checkbox]:-moz-read-only, form input[type=text]:disabled, form input[type=text]:-moz-read-only, form input[type=password]:disabled, form input[type=password]:-moz-read-only, form input[type=date]:disabled, form input[type=date]:-moz-read-only {
   background-color: #00000000;
   color: #58d68d;
   font-weight: bold;
 }
 
-form textarea:disabled, form textarea:read-only, form input[type=number]:disabled, form input[type=number]:read-only, form input[type=search]:disabled, form input[type=search]:read-only, form input[type=email]:disabled, form input[type=email]:read-only, form input[type=checkbox]:disabled, form input[type=checkbox]:read-only, form input[type=text]:disabled, form input[type=text]:read-only, form input[type=password]:disabled, form input[type=password]:read-only {
+form textarea:disabled, form textarea:read-only, form input[type=number]:disabled, form input[type=number]:read-only, form input[type=search]:disabled, form input[type=search]:read-only, form input[type=email]:disabled, form input[type=email]:read-only, form input[type=checkbox]:disabled, form input[type=checkbox]:read-only, form input[type=text]:disabled, form input[type=text]:read-only, form input[type=password]:disabled, form input[type=password]:read-only, form input[type=date]:disabled, form input[type=date]:read-only {
   background-color: #00000000;
   color: #58d68d;
   font-weight: bold;
@@ -396,8 +396,8 @@ form input[type=button], form input[type=submit] {
   margin-top: .5em;
   background-color: #00000000;
   color: #949494;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
   font-weight: bold;
 }
 
@@ -409,6 +409,12 @@ form input[type=button]:disabled, form input[type=submit]:disabled {
 form input[type=button]:disabled:hover, form input[type=submit]:disabled:hover {
   border-radius: 1em;
   color: #949494;
+}
+
+.alert {
+  background-color: #bada2d2d;
+  padding: 1em;
+  margin: 1em;
 }
 
 #deleteAccount {
@@ -448,13 +454,32 @@ label {
   cursor: pointer;
   border: 1px solid #58d68d;
   border-radius: 1em;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
 }
 
 .button:hover, .button:focus, button:hover, button:focus {
   border-radius: 0.2em;
   color: #58d68d;
   background: radial-gradient(#539e721f 0, rgba(0, 0, 0, 0) 75%);
+}
+
+.card {
+  padding: 1em;
+}
+
+.kbw-signature {
+  height: 180px;
+  width: 400px;
+  border-radius: .2em;
+  background-color: #00000000;
+}
+
+#signaturePad canvas {
+  width: 100% !important;
+  height: auto;
+  border-radius: .2em;
+  border: #58d68d solid 2px;
+  background-color: #00000000;
 }
 /*# sourceMappingURL=app.css.map */

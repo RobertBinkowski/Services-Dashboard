@@ -16,14 +16,15 @@ return new class extends Migration
         Schema::create('contracts', function(Blueprint $table){
             $table->id('id')->autoIncrement();
             $table->string('address');
-            // $table->string('document');
+            $table->longText('document');
             $table->string('details');
             $table->foreignId('users');
             $table->foreignId('service');
-            $table->string('signature');
+            $table->text('customer_signature');
+            $table->text('specialist_signature');
             $table->timestamp('created_at')->date_timestamp_set();
             $table->timestamp('updated_at')->nullable();
-            $table->boolean('completed')->default(0);
+            $table->enum('status',['Created','Active','Cancelled','Payment', 'Complete'])->default('Created');
         });
     }
 

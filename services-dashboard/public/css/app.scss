@@ -202,7 +202,7 @@ button{
     }
 }
 form{
-    textarea, input[type=number], input[type=search], input[type=email],input[type=checkbox],input[type=text],input[type=password]{
+    textarea, input[type=number], input[type=search], input[type=email],input[type=checkbox],input[type=text],input[type=password], input[type=date]{
         border-radius:$rad-1;
         padding: .5em;
         background-color: #00000000;
@@ -249,6 +249,11 @@ form{
         }
     }
 }
+.alert{
+    background-color: #bada2d2d;
+    padding: 1em;
+    margin: 1em;
+}
 #deleteAccount{
     border-color: $txt-red;
     color: $txt-red;
@@ -292,6 +297,26 @@ label{
     color: $acc-2;
     @include gradient();
   }
+}
+// Signature
+
+.card {
+    // box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.7);
+    padding: 1em;
+}
+
+.kbw-signature {
+    height: 180px;
+    width: 400px;
+    border-radius: .2em;
+    background-color: #00000000;
+}
+#signaturePad canvas {
+    width: 100% !important;
+    height: auto;
+    border-radius: .2em;
+    border: #58d68d solid 2px;
+    background-color: #00000000;
 }
 
 /*# sourceMappingURL=app.css.map */

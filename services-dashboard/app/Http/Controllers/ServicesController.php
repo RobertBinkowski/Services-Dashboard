@@ -32,14 +32,55 @@ class ServicesController extends Controller
             'services' => $services,
         ]);
     }
-    public function apply($id){
+    public function apply(Request $request){
         return view("service.apply",[
-            'service' => \App\Models\Service::find($id),
+            'service' => \App\Models\Service::find($request->id),
         ]);
     }
     public function createForm(){
         return view('service.create');
     }
+    public function complete(Request $requsert){
+        DB::table('contracts')
+            ->where('service', $requsert->id)
+            ->limit(1)
+            ->update([
+            'status' => 'Payment',
+        ]);
+        return back()->with('success', 'Form successfully Completed, Requesting Payment');
+    }
+    //Payment Section
+    public function paymentPage($id){
+        return view('service.payment.payment', [
+            'contract' => \App\Models\Contract::find($id),
+        ]);
+    }
+    public function payment(Request $requsert){
+
+        // Reviews
+        $reviews = 0;
+        $score = $requsert->score;
+        $rating = $reviews / $score;
+
+        DB::table('services')
+            ->where('id', $requsert->service)
+            ->limit(1)
+            ->update([
+                'rating' => $rating,
+                'score' => $score,
+                'reviews' => $reviews,
+            ]);
+
+        // Set As Complete
+        // DB::table('contracts')
+        //     ->where('service', $requsert->id)
+        //     ->limit(1)
+        //     ->update([
+        //     'status' => 'Complete',
+        // ]);
+        return back()->with('success', 'Form successfully Completed, Payment Went Through');
+    }
+
     public function create(Request $request){
         $save = new Service;
         $save->address = $request->address;
@@ -68,6 +109,7 @@ class ServicesController extends Controller
                 'range' => $request->range,
                 'address' => $request->address,
                 'price' => $request->price,
+                'contract' => $request->contract,
                 'users' => $request->users,
             ]);
             return back()->with('success', 'successfully updated');

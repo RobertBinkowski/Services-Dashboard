@@ -20,6 +20,7 @@
                     Jobs
                 </h2>
                 <div class="grid">
+
                     <div>
                         {{-- <a href="{{ url('#') }}" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre> --}}
                         <h3>
@@ -29,11 +30,12 @@
                         {{-- </a> --}}
                         <ul>
                             @foreach ($jobs as $current)
-                                @if ($current->completed == 0)
-                                    <a href="{{ url('contract', ['id' => $current->id]) }}" data-bs-toggle="dropdown"
+                                @if ($current->status == 'Active'||$current->status == 'Created')
+                                    <a href="{{ url('contract/show', ['id' => $current->id]) }}" data-bs-toggle="dropdown"
                                         aria-haspopup="true" aria-expanded="false" v-pre>
                                         <li>
-                                            {{ $current->details }}
+                                            {{ App\Models\Service::find($current->service)->name }}
+                                            <p class="alert">{{$current->status}}</p>
                                         </li>
                                     </a>
                                 @endif
@@ -50,11 +52,12 @@
                         {{-- </a> --}}
                         <ul>
                             @foreach ($jobs as $current)
-                                @if ($current->completed == 1)
-                                    <a href="{{ url('contract', ['id' => $current->id]) }}" data-bs-toggle="dropdown"
+                                @if ($current->status == 'Complete'|| $current->status == 'Payment')
+                                    <a href="{{ url('contract/show', ['id' => $current->id]) }}" data-bs-toggle="dropdown"
                                         aria-haspopup="true" aria-expanded="false" v-pre>
                                         <li>
-                                            {{ $current->details }}
+                                            {{ App\Models\Service::find($current->service)->name }}
+                                            <p class="alert">{{$current->status}}</p>
                                         </li>
                                     </a>
                                 @endif
@@ -62,7 +65,6 @@
                         </ul>
                     </div>
                 </div>
-
             </div>
             <div class="card">
                 <a href="{{ url('/contract') }}" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
@@ -74,25 +76,42 @@
                 </a>
                 <ul>
                     @foreach ($contracts as $contract)
-                        <a href="{{ url('contract', ['id' => $contract->id]) }}" data-bs-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false" v-pre>
-                            <li>
-                                {{ $contract->details }}
-                                <br> <br><strong>
-                                    @if ($contract->completed == 1)
-                                        Complete
-                                    @else
-                                        Still Working
-                                    @endif
-                                </strong>
-                            </li>
-                        </a>
+                        @if ($contract->status != "Cancelled")
+                            <a href="{{ url('contract/show', ['id' => $contract->id]) }}" data-bs-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false" v-pre>
+                                <li>
+                                    <h3>{{ App\Models\Service::find($contract->service)->name }}</h3>
+
+                                    <strong>
+                                        @if ($contract->status == "Payment"||$contract->status == "Created")
+                                        <p class="alert">{{$contract->status}}</p>
+                                        @else
+                                            <p class="alert">{{$contract->status}}</p>
+                                        @endif
+                                    </strong>
+                                </li>
+                            </a>
+                        @endif
                     @endforeach
 
                 </ul>
                 <a href="{{ url('/search') }}" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                     <p class="fa-solid fa-search"></p>
                     Search
+                </a>
+                <a href="{{ url('/contract') }}" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                    v-pre>
+                    <p>
+                        <p class="fa-solid fa-book"></p>
+                        History
+                    </p>
+                </a>
+                <a href="{{ url('/signature/form') }}" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                    v-pre>
+                    <p>
+                        <p class="fa-solid fa-pen-nib"></p>
+                        Check Digital Signature
+                    </p>
                 </a>
             </div>
             <div class="card">
@@ -108,12 +127,24 @@
                         <a href="/service/edit/{{ $service->id }}" data-bs-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false" v-pre>
                             <li>
-                                {{ $service->name }}
+                                {{ $service->name }} <br>
+                                @if ($service->rating != 0)
+                                    {{$service->rating}}/10
+                                @else
+                                    No Reviews
+                                @endif
                             </li>
                         </a>
                     @endforeach
 
                 </ul>
+                <a href="{{ url('/service') }}" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                    v-pre>
+                    <p>
+                        <p class="fa-solid fa-briefcase"></p>
+                        More Services
+                    </p>
+                </a>
                 <a href="{{ url('/service/create') }}" data-bs-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false" v-pre>
                     <p class="fa-solid fa-add"></p>

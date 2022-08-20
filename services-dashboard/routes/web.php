@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\ContractController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\SignatureController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\OperationController;
 
@@ -62,12 +63,29 @@ Route::prefix('/service')->group( function () {
     //Edit
     Route::get('/edit/{id}', [ServicesController::class, 'edit']);
     Route::post('/edit', [ServicesController::class, 'update']);
+    //Complete
+    Route::post('/complete', [ServicesController::class, 'complete']);
+    //Payment
+    Route::get('/payment/{id}', [ServicesController::class, 'paymentPage']);
+    Route::post('/payment', [ServicesController::class, 'payment']);
+
     //Delete
     Route::get('/delete/{id}', [ServicesController::class, 'delete']);
     //Add operation
-    Route::get('/operation/{id}', [OperationController::class, 'createForm']);
-    Route::post('/operation',[OperationController::class, 'create']);
-    Route::post('/operation',[OperationController::class, 'create']);
+    Route::prefix('/operation')->group( function () {
+        //Create
+        Route::get('/create/{id}', [OperationController::class, 'createForm']);
+        Route::post('/create',[OperationController::class, 'create']);
+        //Edit
+        Route::get('/edit/{id}',[OperationController::class, 'edit']);
+        Route::post('/edit',[OperationController::class, 'update']);
+    });
+
+});
+
+Route::prefix('/signature')->group(function (){
+    Route::get('/form',[SignatureController::class,"getForm"]);
+    Route::post('/form',[SignatureController::class,"confirm"]);
 });
 
 
@@ -81,8 +99,11 @@ Route::prefix('/account')->group( function (){
 //Contract
 Route::prefix('/contract')->group(function(){
     Route::get('/', [ContractController::class, 'mycontracts']);
-    Route::get('/{id}', [ContractController::class, 'index']);
-    Route::post('/', [ContractController::class, 'update']);
+    Route::get('/show/{id}', [ContractController::class, 'index']);
+    Route::post('/update', [ContractController::class, 'update']);
+    Route::post('/acceptContract', [ContractController::class, 'acceptContract']);
+    Route::get('/reject/{id}', [ContractController::class, 'rejectContract']);
+    Route::post('/reject', [ContractController::class, 'rejectContract']);
 });
 
 //Policy

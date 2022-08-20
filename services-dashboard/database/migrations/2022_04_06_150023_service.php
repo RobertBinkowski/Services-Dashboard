@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('name');
             $table->string('address');
             $table->double('range')->default(100);
+            $table->double('rating')->nullable();
+            $table->double('reviews')->nullable();
             $table->double('score')->nullable();
             $table->double('price')->nullable();
             $table->longText('contract');

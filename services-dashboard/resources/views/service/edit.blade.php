@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
-@section('title', 'Create Service')
+@section('title', 'Edit Service')
 @method('POST')
 
 @section('content')
     <div class="div-info">
-        <h1>Create Service</h1>
+        <h1>Edit Service</h1>
         <h2>Hello, {{ Auth::user()->name }}</h2>
     </div>
     @if ($message = Session::get('success'))
@@ -26,8 +26,8 @@
                 <label for="range">Range (Km)</label><br>
                 <input type="number" required name="range" value="{{ $service->range }}"><br>
                 <input type="text" name="id" required hidden value="{{ $service->id }}"><br>
-                <input type="text" name="users" required value="{{ $service->users }}"><br>
-                <input type="submit" class="button" value="Edit Service">
+                <input type="text" name="users" required hidden value="{{ $service->users }}"><br>
+                <input type="submit" class="button" value="Save">
             </form>
         </div>
     </div>

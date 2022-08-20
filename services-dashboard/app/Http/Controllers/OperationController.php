@@ -12,25 +12,28 @@ class OperationController extends Controller
     public function create(Request $request)
     {
         $save = new Operation;
-        $save->start_date = $request->start_date;
-        $save->end_date = $request->end_date;
+        $save->date = $request->date;
         $save->duration = $request->duration;
-        $save->contract = $request->contract;
+        $save->contracts = $request->contract;
         $save->save();
 
+        // Count Contract Price
 
-        return back()->with('success', 'Form successfully submitted with signature');
+        return back()->with('success', 'Form successfully submitted');
     }
     public function createForm($id){
         return view('operation.operation',["contract" => $id]);
+    }
+    public function edit($id){
+        $data = Operation::find($id);
+        return view('operation.edit',["operation" => $data]);
     }
     public function update(Request $request){
         DB::table('operation')
               ->where('id', $request->id)
               ->limit(1)
               ->update([
-                'start_date' => $request->start_date,
-                'end_date' => $request->end_date,
+                'date' => $request->date,
                 'duration' => $request->duration,
                 'contract' => $request->contract,
             ]);

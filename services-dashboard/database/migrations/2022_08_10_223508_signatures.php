@@ -19,7 +19,7 @@ return new class extends Migration
             $table->timestamp('updated_at')->nullable();
             $table->foreignId('users');
             $table->foreignId('contract');
-            $table->string('hash');
+            $table->text('hash');
         });
     }
 

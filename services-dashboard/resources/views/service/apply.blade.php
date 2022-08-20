@@ -64,23 +64,5 @@
 
 
 <style scoped>
-    .card {
-        box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.7);
-        padding: 1em;
-    }
-
-    .kbw-signature {
-        height: 180px;
-        width: 400px;
-        border-radius: .2em;
-        background-color: #00000000;
-    }
-    #signaturePad canvas {
-        width: 100% !important;
-        height: auto;
-        border-radius: .2em;
-        border: #58d68d solid 2px;
-        background-color: #00000000;
-    }
 
 </style>

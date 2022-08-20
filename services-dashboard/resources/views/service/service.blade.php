@@ -11,7 +11,7 @@
                 Address: <strong>{{ $service['address'] }}</strong>
             </li>
             <li>
-                Score: <strong>{{ $service['score'] }}/10</strong>
+                Score: <strong>{{ $service['rating'] }}/10</strong>
             </li>
             <li>
                 Price: <strong>{{ $service['price'] }}</strong>/h

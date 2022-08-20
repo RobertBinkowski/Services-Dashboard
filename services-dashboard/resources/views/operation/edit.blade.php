@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
-@section('title', 'Contract')
+@section('title', 'Operation')
 @method('POST')
 
 @section('content')
     <div class="div-info">
-        <h1>Contract</h1>
+        <h1>Edit Operation</h1>
         <h2>Hello, {{ Auth::user()->name }}</h2>
     </div>
     <div>
@@ -14,16 +14,14 @@
                 <strong>{{ $message }}</strong>
             </div>
         @endif
-        <form method="POST" action="{{ url('/service/operation') }}">
+        <form method="POST" action="{{ url('/service/operation/edit') }}">
             @csrf
-            <input type="text" name="contract" value="{{ $operation->contract }}" hidden>
-            <label for="start_date">Start Date</label><br>
-            <input type="date" required name="start_date" value="{{ $operation->start_date }}"><br>
-            <label for="end_date">End Date</label><br>
-            <input type="date" required name="end_date" value="{{ $operation->end_date }}"><br>
+            <input type="text" name="contract" value="{{ $operation->contract }}" hidden readonly>
+            <label for="start_date">Date</label><br>
+            <input type="date" required name="date" value="{{ $operation->date }}"><br>
             <label for="duration">Hours Worked</label><br>
             <input type="number" required name="duration" value="{{ $operation->duration }}"><br>
-            <input type="submit" class="button" value="Create Operation">
+            <input type="submit" class="button" value="Save">
         </form>
     </div>
 @endsection
