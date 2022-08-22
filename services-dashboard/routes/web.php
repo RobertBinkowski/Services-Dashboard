@@ -68,7 +68,9 @@ Route::prefix('/service')->group( function () {
     //Payment
     Route::get('/payment/{id}', [ServicesController::class, 'paymentPage']);
     Route::post('/payment', [ServicesController::class, 'payment']);
-
+    //Review
+    Route::get('/review/{id}', [ServicesController::class, 'reviewPage']);
+    Route::post('/review', [ServicesController::class, 'review']);
     //Delete
     Route::get('/delete/{id}', [ServicesController::class, 'delete']);
     //Add operation

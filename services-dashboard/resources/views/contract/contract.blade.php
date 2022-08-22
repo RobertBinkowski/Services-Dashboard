@@ -137,6 +137,12 @@
                         Pay For Service
                     </a>
             @endif
+            @if ($contract->status == 'Complete' && $contract->users == Auth::user()->id)
+                    <a href="{{ url('service/review', ['id' => $contract->id]) }}" data-bs-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false" v-pre class="button">
+                        Review
+                    </a>
+            @endif
         </div>
     </div>
 @endsection

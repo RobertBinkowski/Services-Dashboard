@@ -40,45 +40,61 @@ class ServicesController extends Controller
     public function createForm(){
         return view('service.create');
     }
-    public function complete(Request $requsert){
+    public function complete(Request $request){
         DB::table('contracts')
-            ->where('service', $requsert->id)
+            ->where('service', $request->id)
             ->limit(1)
             ->update([
             'status' => 'Payment',
         ]);
         return back()->with('success', 'Form successfully Completed, Requesting Payment');
     }
+
     //Payment Section
     public function paymentPage($id){
         return view('service.payment.payment', [
             'contract' => \App\Models\Contract::find($id),
         ]);
     }
-    public function payment(Request $requsert){
+    public function payment(Request $request){
 
-        // Reviews
-        $reviews = 0;
-        $score = $requsert->score;
-        $rating = $reviews / $score;
+        // Set As Complete
+        DB::table('contracts')
+            ->where('service', $request->id)
+            ->limit(1)
+            ->update([
+            'status' => 'Complete',
+        ]);
+        return back()->with('success', 'Form successfully Completed, Payment Went Through');
+    }
+
+    //Review Section
+    public function reviewPage($id){
+        return view('service.review.review', [
+            'contract' => \App\Models\Contract::find($id),
+        ]);
+    }
+    public function review(Request $request){
+
+
+        if( Service::find($request->service)->reviews == null){
+            $reviews = 0;
+        }else{
+            $reviews = Service::find($request->id)->reviews;
+        }
+        $reviews = $reviews + 1;
+        $score = Service::find($request->id)->score + $request->score;
+        $rating = $score / $reviews;
 
         DB::table('services')
-            ->where('id', $requsert->service)
+            ->where('id', $request->service)
             ->limit(1)
             ->update([
                 'rating' => $rating,
                 'score' => $score,
                 'reviews' => $reviews,
             ]);
-
-        // Set As Complete
-        // DB::table('contracts')
-        //     ->where('service', $requsert->id)
-        //     ->limit(1)
-        //     ->update([
-        //     'status' => 'Complete',
-        // ]);
-        return back()->with('success', 'Form successfully Completed, Payment Went Through');
+        return back()->with('success', 'Thank you for the Review');
     }
 
     public function create(Request $request){
