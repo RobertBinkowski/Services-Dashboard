@@ -35,10 +35,10 @@ class SignatureController extends Controller
 
         $database = \App\Models\Signature::where('signature', $request->signature)->get();
 
-        if(strcmp($database[0]->hash, $hash) == 0){
+        if(strcmp($database, $hash) == 0){
             return back()->with('success', 'The Signature and the Document have not been altered');
         }else{
-            return back()->with('success', 'The Signature/Document has been altered');
+            return back()->with('success', $database);
         }
     }
 
