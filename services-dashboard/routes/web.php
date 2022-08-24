@@ -10,6 +10,7 @@ use App\Http\Controllers\SearchController;
 use App\Http\Controllers\SignatureController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\OperationController;
+use App\Http\Controllers\StripeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -66,8 +67,8 @@ Route::prefix('/service')->group( function () {
     //Complete
     Route::post('/complete', [ServicesController::class, 'complete']);
     //Payment
-    Route::get('/payment/{id}', [ServicesController::class, 'paymentPage']);
-    Route::post('/payment', [ServicesController::class, 'payment']);
+    Route::get('/payment/{id}', [StripeController::class, 'stripe']);
+    Route::post('/payment', [StripeController::class, 'stripePost'])->name('stripe.post');
     //Review
     Route::get('/review/{id}', [ServicesController::class, 'reviewPage']);
     Route::post('/review', [ServicesController::class, 'review']);

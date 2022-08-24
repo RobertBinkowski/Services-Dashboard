@@ -49,25 +49,6 @@ class ServicesController extends Controller
         ]);
         return back()->with('success', 'Form successfully Completed, Requesting Payment');
     }
-
-    //Payment Section
-    public function paymentPage($id){
-        return view('service.payment.payment', [
-            'contract' => \App\Models\Contract::find($id),
-        ]);
-    }
-    public function payment(Request $request){
-
-        // Set As Complete
-        DB::table('contracts')
-            ->where('service', $request->id)
-            ->limit(1)
-            ->update([
-            'status' => 'Complete',
-        ]);
-        return back()->with('success', 'Form successfully Completed, Payment Went Through');
-    }
-
     //Review Section
     public function reviewPage($id){
         return view('service.review.review', [
@@ -75,7 +56,6 @@ class ServicesController extends Controller
         ]);
     }
     public function review(Request $request){
-
 
         if( Service::find($request->service)->reviews == null){
             $reviews = 0;
