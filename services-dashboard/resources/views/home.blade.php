@@ -30,14 +30,16 @@
                         {{-- </a> --}}
                         <ul>
                             @foreach ($jobs as $current)
-                                @if ($current->status == 'Active'||$current->status == 'Created')
-                                    <a href="{{ url('contract/show', ['id' => $current->id]) }}" data-bs-toggle="dropdown"
-                                        aria-haspopup="true" aria-expanded="false" v-pre>
-                                        <li>
-                                            {{ App\Models\Service::find($current->service)->name }}
-                                            <p class="alert">{{$current->status}}</p>
-                                        </li>
-                                    </a>
+                                @if(App\Models\Service::find($current->service)->users == Auth::id())
+                                    @if ($current->status == 'Active' || $current->status == 'Created')
+                                        <a href="{{ url('contract/show', ['id' => $current->id]) }}" data-bs-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false" v-pre>
+                                            <li>
+                                                {{ App\Models\Service::find($current->service)->name }}
+                                                <p class="alert">{{$current->status}}</p>
+                                            </li>
+                                        </a>
+                                    @endif
                                 @endif
                             @endforeach
                         </ul>
@@ -52,14 +54,16 @@
                         {{-- </a> --}}
                         <ul>
                             @foreach ($jobs as $current)
-                                @if ($current->status == 'Complete'|| $current->status == 'Payment')
-                                    <a href="{{ url('contract/show', ['id' => $current->id]) }}" data-bs-toggle="dropdown"
-                                        aria-haspopup="true" aria-expanded="false" v-pre>
-                                        <li>
-                                            {{ App\Models\Service::find($current->service)->name }}
-                                            <p class="alert">{{$current->status}}</p>
-                                        </li>
-                                    </a>
+                                @if(App\Models\Service::find($current->service)->users == Auth::id())
+                                    @if ($current->status == 'Complete'|| $current->status == 'Payment')
+                                        <a href="{{ url('contract/show', ['id' => $current->id]) }}" data-bs-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false" v-pre>
+                                            <li>
+                                                {{ App\Models\Service::find($current->service)->name }}
+                                                <p class="alert">{{$current->status}}</p>
+                                            </li>
+                                        </a>
+                                    @endif
                                 @endif
                             @endforeach
                         </ul>

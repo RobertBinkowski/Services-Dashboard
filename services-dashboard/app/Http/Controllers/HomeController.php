@@ -36,9 +36,12 @@ class HomeController extends Controller
         ])->get();
 
         // Jobs
-        $jobs = DB::table('contracts')->where([
-            'service' => Auth::id() //Change
-        ])->get();
+        // $jobs = DB::table('contracts')->where([
+        //     'service' => Auth::id() //Change
+        // ])->get();
+
+        $jobs = DB::table('contracts')->get();
+
         // $jobs = DB::table('contracts')->DB::table('services');
 
 

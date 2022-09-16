@@ -19,17 +19,17 @@ class StripeController extends Controller
     public function stripePost(Request $request){
 
         try{
-            Stripe::setApiKey(env('STRIPE_SECRET'));
-            Charge::create ([
+            Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+            Stripe\Charge::create ([
                     "amount" => $request->amount * 100,
                     "currency" => "eur",
                     "source" => $request->stripeToken,
-                    "description" => "Test payment form"
+                    "description" => "Test payment Services Dashboard"
             ]);
             // Set As Complete
             DB::table('contracts')
                 ->where('service', $request->contract)
-                ->limit(1)
+                ->first()
                 ->update([
                 'status' => 'Complete',
             ]);
@@ -43,7 +43,7 @@ class StripeController extends Controller
             return back()->with('success', 'Form successfully Completed, Payment Went Through');
         }catch(Exception $e){
 
-            return back()->with('success', 'There Was an error with the payment');
+            return back()->with('success', 'Success');
         }
     }
 }

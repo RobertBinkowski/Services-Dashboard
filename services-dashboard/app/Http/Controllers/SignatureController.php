@@ -31,21 +31,21 @@ class SignatureController extends Controller
 
     public function confirm(Request $request){
         // Hash Document and Signature
-        $hash = Hash::make($request->signature. $request->document);
+        $hash = Hash::make($request->signature);
 
-        $database = \App\Models\Signature::where('signature', $request->signature)->get();
+        $database = \App\Models\Signature::where('signature', $request->signature)->get()->first();
 
-        if(strcmp($database, $hash) == 0){
+        if(Hash::check($database->signature, $hash)){
             return back()->with('success', 'The Signature and the Document have not been altered');
         }else{
-            return back()->with('success', $database);
+            return back()->with('success', 'The Signature does not match the records');
         }
     }
 
     public function create(Request $request){
 
         // Hash Both Inputs
-        $hash = Hash::make($request->signature. $request->document);
+        $hash = Hash::make($request->signature . $request->document);
 
         $save = new Signature;
         $save->users = $request->user;
